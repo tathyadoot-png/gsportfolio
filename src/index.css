@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Gotu&family=Playpen+Sans+Deva:wght@100..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== TRICOLOR SYSTEM (ORANGE, WHITE, GREEN, BLACK) ===== */
+@layer base {
+  :root {
+    /* Main Branding */
+    --color-orange: #E46B2E;     /* Primary Orange */
+    --color-white: #FFFFFF;      /* Base White */
+    --color-off-white: #F9FAFB;  /* Clean Off-white */
+    --color-green: #159172;      /* Vikas Green */
+    
+    /* Strict Neutral Palette (No Blue) */
+    --color-black: #000000;      /* Pure Black */
+    --color-text: #1A1A1A;       /* Deep Charcoal (Reading ke liye better hai black se) */
+    --color-text-muted: #666666; /* Neutral Gray */
+    --color-bg: #FFFFFF;
+    --color-bg-soft: #F3F4F6;    /* Light Neutral Background */
+    --color-border: #D1D5DB;     /* Neutral Border */
+  }
+
+  body {
+    @apply bg-bg text-text antialiased;
+    font-family: 'Martel', serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Gotu', sans-serif;
+    letter-spacing: 0.01em;
+    @apply text-orange; /* Headings Orange rahengi */
+  }
+}
+
+@layer components {
+  /* 🟠 Primary Orange Button */
+  .btn-orange {
+    @apply bg-orange text-white px-6 py-2 rounded-md
+           font-semibold tracking-wide
+           hover:brightness-110 active:scale-95
+           transition-all shadow-md;
+  }
+
+  /* ⚪ White/Outline Button */
+  .btn-white {
+    @apply bg-white text-orange border-2 border-orange px-6 py-2 rounded-md
+           font-semibold
+           hover:bg-orange hover:text-white active:scale-95
+           transition-all shadow-sm;
+  }
+
+  /* 🟢 Green Button (Success/Action) */
+  .btn-green {
+    @apply bg-green text-white px-6 py-2 rounded-md
+           font-semibold
+           hover:brightness-110 active:scale-95
+           transition-all shadow-md;
+  }
+
+  /* ⚫ Black Button (Alternative) */
+  .btn-black {
+    @apply bg-black text-white px-6 py-2 rounded-md
+           font-semibold
+           hover:bg-opacity-80 active:scale-95
+           transition-all shadow-md;
+  }
+}
