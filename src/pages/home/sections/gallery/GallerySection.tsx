@@ -41,74 +41,70 @@ const GallerySection = () => {
   };
 
   return (
-    <section id="gallery" className="relative py-24 bg-[#FAFAFA] overflow-hidden">
-      {/* Soft Background Accents */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none">
-        <div className="absolute top-[-5%] right-[-2%] w-[600px] h-[600px] bg-primary/10 rounded-full blur-[140px]" />
-        <div className="absolute bottom-[-5%] left-[-2%] w-[600px] h-[600px] bg-green/10 rounded-full blur-[140px]" />
+    <section id="gallery" className="relative py-24 bg-[#FCFCFC] overflow-hidden">
+      {/* Refined Background Accents */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
+        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-slate-200 rounded-full blur-[120px]" />
       </div>
 
-      {/* Main Container - Full Width logic */}
-      <div className="mx-auto w-full  md:px-12 lg:px-7">
-         <SectionHeading 
-              subtitle={isHi ? "विजुअल आर्काइव" : "Visual Archive"} 
-              title={isHi ? "जनसेवा की झलकियां" : "Moments of Service"} 
-            />
-        {/* Full Width Heading Section */}
-     
+      <div className="mx-auto w-full px-4 md:px-12 lg:px-20">
+        <div className="mb-16">
+          <SectionHeading 
+            subtitle={isHi ? "विजुअल आर्काइव" : "Visual Archive"} 
+            title={isHi ? "जनसेवा की झलकियां" : "Moments of Service"} 
+          />
+        </div>
 
-        {/* MODERN BENTO GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[700px] lg:px-40 px-6">
+        {/* MODERN BENTO GRID - Adjusted Alignment */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 h-auto md:h-[750px] lg:px-12 xl:px-24">
           {galleryCategories.map((cat, idx) => (
             <motion.div
               key={cat.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.6 }}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
               onClick={() => { setActiveCat(cat); setImgIndex(0); }}
-              className={`group relative overflow-hidden rounded-[2.5rem] cursor-pointer bg-white shadow-xl shadow-secondary/5 border border-white
+              className={`group relative overflow-hidden rounded-[2rem] cursor-pointer bg-white shadow-sm border border-slate-100
                 ${idx === 0 ? "md:col-span-7 md:row-span-2" : ""} 
                 ${idx === 1 ? "md:col-span-5 md:row-span-1" : ""}
                 ${idx === 2 ? "md:col-span-2 md:row-span-1" : ""}
                 ${idx === 3 ? "md:col-span-3 md:row-span-1" : ""}
               `}
             >
-              {/* Image with Parallax-like Effect */}
               <img 
                 src={cat.thumbnail} 
-                className="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105"
                 alt={cat.titleEn}
               />
               
-              {/* Overlay: Deep Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
+              {/* Refined Gradient: Slate to Transparent */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
 
-              {/* Content Box */}
-              <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
-                <div className="flex items-end justify-between translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <div className="max-w-[80%]">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-[10px] font-black uppercase tracking-widest border border-primary/20">
+              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
+                <div className="flex items-end justify-between translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="max-w-[75%]">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="px-3 py-1 rounded-full bg-primary text-white text-[9px] font-bold uppercase tracking-widest">
                         {cat.images.length} {isHi ? "फोटोज" : "Photos"}
                       </span>
                     </div>
-                    <h3 className="text-white text-2xl md:text-3xl font-bold leading-tight">
+                    <h3 className="text-white text-xl md:text-2xl font-gotu font-bold leading-tight">
                       {isHi ? cat.titleHi : cat.titleEn}
                     </h3>
                   </div>
                   
-                  {/* Icon Button */}
-                  <div className="w-14 h-14 rounded-2xl bg-white text-secondary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-lg">
-                    <ArrowUpRight size={24} strokeWidth={2.5} />
+                  <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md text-white flex items-center justify-center group-hover:bg-primary transition-all duration-300">
+                    <ArrowUpRight size={20} />
                   </div>
                 </div>
               </div>
 
-              {/* Glass Tag */}
-              <div className="absolute top-8 left-8 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <Layers size={14} className="text-primary" />
-                {isHi ? "गैलरी देखें" : "View Gallery"}
+              {/* Minimal Glass Tag */}
+              <div className="absolute top-6 left-6 px-3 py-1.5 rounded-lg bg-black/20 backdrop-blur-md border border-white/10 text-white text-[9px] font-bold uppercase tracking-widest flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <Layers size={12} className="text-primary" />
+                {isHi ? "गैलरी" : "Gallery"}
               </div>
             </motion.div>
           ))}
@@ -120,47 +116,42 @@ const GallerySection = () => {
         {activeCat && (
           <motion.div 
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[10000] bg-black flex items-center justify-center p-0 md:p-10"
+            className="fixed inset-0 z-[10000] bg-[#0A0A0B] flex items-center justify-center p-0 md:p-10"
           >
-            {/* Background Image (Blurred) */}
-            <div className="absolute inset-0 opacity-40 blur-3xl scale-125 pointer-events-none">
+            <div className="absolute inset-0 opacity-30 blur-3xl pointer-events-none">
                 <img src={activeCat.images[imgIndex]} className="w-full h-full object-cover" alt="" />
             </div>
 
-            {/* Header Area */}
-            <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-black/80 to-transparent z-[10005] flex items-center justify-between px-6 md:px-16">
+            {/* Premium Header */}
+            <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-black to-transparent z-[10005] flex items-center justify-between px-6 md:px-12">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl border border-primary/50 overflow-hidden rotate-3">
+                <div className="w-10 h-10 rounded-lg overflow-hidden border border-white/20">
                     <img src={activeCat.thumbnail} className="w-full h-full object-cover" alt="" />
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-lg md:text-xl tracking-tight">{isHi ? activeCat.titleHi : activeCat.titleEn}</h3>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-green rounded-full animate-pulse" />
-                    <span className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold">{isHi ? "लाइव प्रीव्यू" : "Live Preview"}</span>
-                  </div>
+                  <h3 className="text-white font-gotu font-bold text-sm md:text-base">{isHi ? activeCat.titleHi : activeCat.titleEn}</h3>
+                  <p className="text-primary text-[10px] uppercase font-bold tracking-tighter">{isHi ? "लाइव" : "Live"}</p>
                 </div>
               </div>
               
               <button 
-                onClick={(e) => { e.stopPropagation(); closeGallery(); }} 
-                className="w-14 h-14 bg-white/10 hover:bg-red-500 hover:rotate-90 rounded-2xl flex items-center justify-center text-white transition-all duration-300 backdrop-blur-xl border border-white/10 z-[10006]"
+                onClick={closeGallery} 
+                className="w-12 h-12 bg-white/5 hover:bg-white/10 rounded-full flex items-center justify-center text-white transition-all backdrop-blur-md border border-white/10"
               >
-                <X size={28} />
+                <X size={24} />
               </button>
             </div>
 
-            {/* Main Image Container */}
-            <div className="relative w-full h-full max-w-6xl flex items-center justify-center">
-              {/* Progress Bars */}
-              <div className="absolute top-28 inset-x-8 md:inset-x-20 flex gap-1.5 z-[10004]">
+            <div className="relative w-full h-full max-w-5xl flex items-center justify-center">
+              {/* Progress Bars - Higher contrast */}
+              <div className="absolute top-24 inset-x-6 md:inset-x-12 flex gap-1 z-[10004]">
                 {activeCat.images.map((_, i) => (
-                  <div key={i} className="h-1 flex-1 bg-white/10 rounded-full overflow-hidden">
+                  <div key={i} className="h-0.5 flex-1 bg-white/20 rounded-full overflow-hidden">
                     {i === imgIndex && (
                       <motion.div 
                         initial={{ width: "0%" }} animate={{ width: "100%" }}
                         transition={{ duration: 5, ease: "linear" }}
-                        className="h-full bg-primary shadow-[0_0_15px_rgba(255,153,51,0.8)]"
+                        className="h-full bg-primary"
                       />
                     )}
                     {i < imgIndex && <div className="h-full w-full bg-primary/60" />}
@@ -178,34 +169,33 @@ const GallerySection = () => {
                 <motion.img 
                   key={imgIndex}
                   src={activeCat.images[imgIndex]}
-                  initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
-                  transition={{ duration: 0.5 }}
-                  className="max-w-[95%] max-h-[75vh] object-contain rounded-3xl z-[10002] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)]"
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.02 }}
+                  transition={{ duration: 0.4 }}
+                  className="max-w-[90%] max-h-[70vh] object-contain rounded-2xl z-[10002] shadow-2xl"
                 />
               </AnimatePresence>
 
-              {/* Navigation Arrows */}
-              <button onClick={handlePrev} className="hidden xl:flex absolute left-[-100px] text-white/30 hover:text-primary transition-all z-[10004] hover:scale-125">
-                <ChevronLeft size={70} strokeWidth={1} />
+              <button onClick={handlePrev} className="hidden lg:flex absolute left-[-80px] text-white/20 hover:text-white transition-all z-[10004]">
+                <ChevronLeft size={48} strokeWidth={1} />
               </button>
-              <button onClick={handleNext} className="hidden xl:flex absolute right-[-100px] text-white/30 hover:text-primary transition-all z-[10004] hover:scale-125">
-                <ChevronRight size={70} strokeWidth={1} />
+              <button onClick={handleNext} className="hidden lg:flex absolute right-[-80px] text-white/20 hover:text-white transition-all z-[10004]">
+                <ChevronRight size={48} strokeWidth={1} />
               </button>
             </div>
 
-            {/* Premium Caption Card */}
-            <div className="absolute bottom-10 inset-x-0 px-6 flex justify-center z-[10004]">
+            {/* Bottom Caption Area */}
+            <div className="absolute bottom-8 inset-x-0 px-6 flex justify-center z-[10004]">
                <motion.div 
-                 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
-                 className="px-8 py-5 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2rem] text-center max-w-2xl shadow-2xl"
+                 initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                 className="px-6 py-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl text-center"
                >
-                  <p className="text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-2">
-                    {isHi ? "चित्र विवरण" : "Image Details"} — {imgIndex + 1} / {activeCat.images.length}
+                  <p className="text-white/40 text-[9px] uppercase tracking-widest mb-1">
+                    {imgIndex + 1} / {activeCat.images.length}
                   </p>
-                  <p className="text-white text-base md:text-xl font-medium leading-snug">
-                    {isHi ? "स्वर्णिम रीवा: जनसेवा और विकास की एक अटूट यात्रा" : "Golden Rewa: An unbreakable journey of service and progress"}
+                  <p className="text-white text-sm md:text-base font-martel">
+                    {isHi ? "स्वर्णिम रीवा: जनसेवा और विकास की यात्रा" : "Golden Rewa: A journey of service & growth"}
                   </p>
                </motion.div>
             </div>

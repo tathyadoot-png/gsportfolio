@@ -1,8 +1,6 @@
-import hi from "@/locales/hi";
-import en from "@/locales/en";
-import type { Lang } from "@/layouts/MainLayout";
+import { ArrowUpRight, Heart } from "lucide-react";
 import logo from "@/assets/SociyoLogo.png";
-import { ArrowUpRight } from "lucide-react";
+import type { Lang } from "@/layouts/MainLayout";
 
 const Footer = ({ lang }: { lang: Lang }) => {
   const isHi = lang === "hi";
@@ -17,68 +15,95 @@ const Footer = ({ lang }: { lang: Lang }) => {
   ];
 
   return (
-    <footer className="bg-[#f9fafb] pt-10 border-t border-gray-100 ">
-      <div className="mx-auto max-w-full px-6 lg:px-20">
+    <footer className="relative bg-white pt-16 overflow-hidden">
+      {/* Patriotic Accent Line */}
+      <div className="absolute top-0 left-0 w-full h-[4px] flex">
+        <div className="h-full w-1/2 bg-primary" /> {/* Saffron */}
+        <div className="h-full w-1/2 bg-green" />  {/* Green */}
+      </div>
+
+      <div className="mx-auto max-w-7xl px-6 lg:px-12">
         
-        {/* Minimal Navigation Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-10 border-b border-gray-100">
-          <div className="flex flex-col items-center md:items-start">
-             <h2 className="font-[Gotu] text-2xl font-black text-secondary tracking-tighter uppercase">
-               {isHi ? "राजेंद्र शुक्ल" : "Rajendra Shukla"}
-             </h2>
-             <span className="text-[10px] font-bold text-primary tracking-[0.3em] uppercase">Vindhya Vision</span>
+        {/* Top Section: Branding & Links */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 pb-12">
+          <div className="text-center lg:text-left space-y-2">
+            <h2 className="font-gotu text-3xl md:text-4xl font-black text-secondary tracking-tighter uppercase">
+              {isHi ? "गणेश सिंह" : "Ganesh Singh"}
+            </h2>
+            <div className="flex items-center justify-center lg:justify-start gap-2">
+              <span className="h-px w-8 bg-primary" />
+             
+              <span className="h-px w-8 bg-green" />
+            </div>
           </div>
 
-          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-3">
+          <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4">
             {navLinks.map((link, idx) => (
               <a 
                 key={idx} 
                 href={link.path} 
-                className="text-xs font-bold text-secondary/60 hover:text-primary transition-all uppercase tracking-widest"
+                className="relative text-[11px] font-black text-secondary/50 hover:text-secondary transition-colors uppercase tracking-[0.2em] group"
               >
                 {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
               </a>
             ))}
           </nav>
         </div>
 
-        {/* The "Wow" Agency Bar - Slick & Dark */}
-        <div className="my-8 rounded-[1.5rem] md:rounded-full bg-[#112250] p-4 md:p-2 pl-6 pr-6 md:pr-2 flex flex-col md:flex-row items-center justify-between gap-4">
+        {/* Middle Section: Slogan */}
+        <div className="py-8 border-t border-slate-100 flex justify-center">
+          <p className="font-martel text-secondary/40 text-sm md:text-base italic text-center">
+            {isHi ? "“प्रगतिशील विन्ध्य, समृद्ध प्रदेश - हमारा संकल्प, हमारा गौरव”" : "“Progressive Vindhya, Prosperous State - Our Resolve, Our Pride”"}
+          </p>
+        </div>
+
+        {/* The Agency Bar - Premium Dark Mode */}
+        <div className="mb-8 rounded-3xl md:rounded-full bg-secondary p-2 pl-8 pr-2 flex flex-col md:flex-row items-center justify-between gap-4 shadow-2xl shadow-secondary/20">
           
-          <div className="flex items-center gap-4">
-            <p className="text-white/30 text-[9px] font-black uppercase tracking-[0.2em] hidden md:block">
-              © {new Date().getFullYear()} All Rights Reserved
+          <div className="flex items-center gap-6 py-4 md:py-0">
+            <p className="text-white/20 text-[9px] font-black uppercase tracking-[0.2em] hidden lg:block">
+              © {new Date().getFullYear()} Exclusive
             </p>
-            <div className="h-4 w-px bg-white/10 hidden md:block" />
-            <p className="text-white/60 text-xs font-medium">
-              {isHi ? "प्रगतिशील विन्ध्य, समृद्ध प्रदेश" : "Progressive Vindhya, Prosperous State"}
-            </p>
+            <div className="hidden lg:block h-4 w-px bg-white/10" />
+            <div className="flex items-center gap-2">
+              <span className="text-white/80 text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+                Made with <Heart className="w-3 h-3 text-primary fill-primary" /> in Satna
+              </span>
+            </div>
           </div>
 
           <a 
             href="https://thesociyo.com/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="w-full md:w-auto flex items-center justify-between md:justify-start gap-4 bg-white/5 hover:bg-white/10 p-2 md:pl-6 rounded-full border border-white/5 transition-all group"
+            className="w-full md:w-auto flex items-center justify-between gap-6 bg-white/5 hover:bg-white/10 pl-6 pr-1 py-1 rounded-full border border-white/5 transition-all group"
           >
-            <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Digital Partner</span>
-            <div className="flex items-center gap-3">
+            <span className="text-[10px] font-black text-white/40 uppercase tracking-[0.2em]">Digital Partner</span>
+            <div className="flex items-center gap-4">
                <img 
                  src={logo} 
                  alt="The Sociyo" 
-                 className="h-6 md:h-7 w-auto object-contain brightness-0 invert" 
+                 className="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity" 
                />
-               <div className="h-8 w-8 rounded-full bg-white flex items-center justify-center group-hover:bg-primary transition-all">
-                  <ArrowUpRight className="w-4 h-4 text-[#112250] group-hover:text-white" />
+               <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center group-hover:bg-white group-hover:scale-90 transition-all duration-500">
+                  <ArrowUpRight className="w-5 h-5 text-white group-hover:text-secondary" />
                </div>
             </div>
           </a>
         </div>
 
-        {/* Mobile Copyright Only */}
-        <p className="text-center text-[9px] font-bold text-secondary/20 uppercase tracking-widest pb-6 md:hidden">
-          © {new Date().getFullYear()} Rajendra Shukla
-        </p>
+        {/* Small Bottom Copyright */}
+        <div className="pb-8 flex flex-col items-center gap-2">
+           <div className="flex gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary/20" />
+              <div className="w-2 h-2 rounded-full bg-green/20" />
+              <div className="w-2 h-2 rounded-full bg-secondary/20" />
+           </div>
+           <p className="text-[9px] font-bold text-secondary/20 uppercase tracking-[0.5em]">
+             Official Digital Portal
+           </p>
+        </div>
       </div>
     </footer>
   );

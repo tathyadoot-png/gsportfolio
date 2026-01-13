@@ -1,9 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface SectionHeadingProps {
   title: string;
@@ -11,80 +6,92 @@ interface SectionHeadingProps {
 }
 
 const SectionHeading = ({ title, subtitle }: SectionHeadingProps) => {
-  const containerRef = useRef(null);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".connector-line", {
-        width: 0,
-        opacity: 0,
-        duration: 1.5,
-        ease: "expo.out",
-        scrollTrigger: { trigger: containerRef.current, start: "top 90%" },
-      });
-
-      gsap.from(".reveal-up", {
-        y: 60,
-        opacity: 0,
-        stagger: 0.2,
-        duration: 1.2,
-        ease: "power4.out",
-        scrollTrigger: { trigger: containerRef.current, start: "top 90%" },
-      });
-    }, containerRef);
-    return () => ctx.revert();
-  }, []);
+  const words = title.split(" ");
 
   return (
-    <div
-      ref={containerRef}
-      className="relative w-full lg:w-[90%] mx-auto mb-12 md:mb-20 px-4 md:px-8 lg:px-12 overflow-hidden"
-    >
-      {/* WRAPPER: Responsive gap management */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-8 lg:gap-12">
-        
-        {/* LEFT: HEADING - Adjusted md text size to prevent overflow */}
-        <div className="flex-shrink-0 md:max-w-[60%] lg:max-w-none">
-          <div className="py-2">
-            <h2 className="reveal-up py-2 font-[Gotu] text-3xl md:text-4xl lg:text-6xl font-[1000] text-[#112250] leading-[0.9] md:leading-[0.85] tracking-tighter uppercase">
-              {title}
-            </h2>
-          </div>
-        </div>
+    <div className="relative w-full max-w-5xl mx-auto mb-11 md:mb-28 px-6 text-center overflow-visible">
+      
+      {/* 1. FLOATING DECOR (Background Watermark) */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full opacity-[0.03] select-none pointer-events-none">
+        <h3 className="text-[15vw] font-black uppercase tracking-[1em] leading-none text-secondary">
+          {words[0]}
+        </h3>
+      </div>
 
-        {/* MIDDLE: DESIGNER LINE (Visible on md and up) */}
-        <div className="hidden md:block flex-grow mb-4 lg:mb-8">
-          <div className="connector-line h-[2px] w-full bg-gradient-to-r from-primary to-green" />
-        </div>
+      <div className="relative z-10">
+        {/* 2. SUBTITLE: Minimal with Diamond Accents */}
+        {subtitle && (
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="flex items-center justify-center gap-4 mb-6"
+          >
+            <span className="h-[1px] w-8 md:w-12 bg-gradient-to-r from-transparent to-green" />
+            <span className="text-[9px] md:text-[11px] font-black uppercase tracking-[0.5em] text-green">
+              {subtitle}
+            </span>
+            <span className="h-[1px] w-8 md:w-12 bg-gradient-to-l from-transparent to-green" />
+          </motion.div>
+        )}
 
-        {/* RIGHT: SUBTITLE & TAG - Width adjusted for md screens */}
-        <div className="w-full md:w-auto lg:w-1/3 md:pb-3 lg:pb-6">
-          <div className="overflow-hidden">
-            {subtitle && (
-              <p className="reveal-up font-[Martel] py-2 text-xs md:text-sm lg:text-lg font-black uppercase tracking-[0.2em] lg:tracking-[0.4em] text-green mb-2 lg:mb-4 leading-tight">
-                {subtitle}
-              </p>
-            )}
-            <div className="reveal-up flex items-center gap-2 lg:gap-3">
-              <span className="h-px w-6 lg:w-10 bg-[#112250]/30" />
-              <span className="text-[8px] lg:text-[10px] font-bold text-primary uppercase tracking-widest whitespace-nowrap">
-                Public Leader • Vision 2026
-              </span>
+        {/* 3. MAIN TITLE: Premium Spacing & Custom Colors */}
+        <h2 className="flex flex-wrap justify-center items-center gap-x-4 md:gap-x-6 gap-y-2">
+          {words.map((word, i) => (
+            <motion.span 
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.15, type: "spring", stiffness: 100 }}
+              className={`font-[Gotu] text-4xl md:text-5xl lg:text-5xl font-[1000] uppercase tracking-tighter
+                ${i === 0 ? "text-primary" : i === 1 ? "text-green" : "text-secondary"}
+              `}
+            >
+              {word}
+            </motion.span>
+          ))}
+        </h2>
+
+        {/* 4. INNOVATIVE FLOATING ACCENT BAR */}
+        <div className="relative mt-3 md:mt-4 flex justify-center">
+          <motion.div 
+             initial={{ width: 0 }}
+             whileInView={{ width: "200px" }}
+             transition={{ duration: 1.2, ease: "circOut" }}
+             className="h-[2px] bg-slate-100 relative"
+          >
+            {/* Moving Indicator Dot */}
+            <motion.div 
+              animate={{ x: [-100, 100, -100] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              className="absolute -top-[3px] left-1/2 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#ff9933]"
+            />
+            {/* Static Tri-color center piece */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-1 bg-white px-2">
+               <div className="w-2 h-2 rounded-full bg-primary" />
+               <div className="w-2 h-2 rounded-full bg-slate-200" />
+               <div className="w-2 h-2 rounded-full bg-green" />
             </div>
-          </div>
+          </motion.div>
         </div>
+
+        {/* 5. LEGACY CAPTION */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="mt-2"
+        >
+          <div className="inline-block px-6 py-2 rounded-full border border-slate-100 bg-slate-50/50 backdrop-blur-sm">
+             <p className="text-[10px] md:text-[8px] font-bold text-secondary/60 uppercase tracking-[0.3em]">
+               <span className="text-secondary">32 Years</span> of Committed Service
+             </p>
+          </div>
+        </motion.div>
       </div>
 
-      {/* BOTTOM PROGRESS BAR */}
-      <div className="mt-6 lg:mt-10 w-full h-[1px] bg-gray-100 relative">
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: "30%" }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="absolute left-0 top-0 h-full bg-[#E46B2E]"
-        />
-      </div>
+      {/* 6. CORNER ACCENTS (Modern Frame Feel) */}
+      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/10" />
+      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-green/10" />
     </div>
   );
 };

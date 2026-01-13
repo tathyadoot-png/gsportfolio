@@ -4,66 +4,74 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== TRICOLOR SYSTEM (ORANGE, WHITE, GREEN, BLACK) ===== */
+/* ===== POLITICAL COLOR SYSTEM ===== */
 @layer base {
   :root {
-    /* Main Branding */
-    --color-orange: #E46B2E;     /* Primary Orange */
-    --color-white: #FFFFFF;      /* Base White */
-    --color-off-white: #F9FAFB;  /* Clean Off-white */
-    --color-green: #159172;      /* Vikas Green */
-    
-    /* Strict Neutral Palette (No Blue) */
-    --color-black: #000000;      /* Pure Black */
-    --color-text: #1A1A1A;       /* Deep Charcoal (Reading ke liye better hai black se) */
-    --color-text-muted: #666666; /* Neutral Gray */
-    --color-bg: #FFFFFF;
-    --color-bg-soft: #F3F4F6;    /* Light Neutral Background */
-    --color-border: #D1D5DB;     /* Neutral Border */
+    /* Branding Colors */
+    --color-primary: #E46B2E;      /* Kesariya (Saffron) */
+    --color-secondary: #112250;    /* Governance Blue */
+    --color-green: #159172;        /* Vikas Green */
+
+    /* Typography */
+    --color-text: #112250;         /* Primary text blue hi rakha hai readability ke liye */
+    --color-text-muted: #4B5563;
+
+    /* Backgrounds (Updated to Off-White) */
+    --color-bg: #FDFCFB;           /* Premium Warm Off-White */
+    --color-bg-soft: #F3F4F6;      /* Slightly darker for sections */
+    --color-border: #E5E7EB;
   }
 
+  /* 🔹 Default body content font */
   body {
     @apply bg-bg text-text antialiased;
-    font-family: 'Martel', serif;
+    font-family: 'Martel';
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Gotu', sans-serif;
+  /* 🔹 All headings = Gotu */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Gotu';
     letter-spacing: 0.01em;
-    @apply text-orange; /* Headings Orange rahengi */
   }
 }
 
+
 @layer components {
-  /* 🟠 Primary Orange Button */
-  .btn-orange {
-    @apply bg-orange text-white px-6 py-2 rounded-md
+
+  /* 🔶 Kesariya CTA */
+  .btn-saffron {
+    @apply bg-primary text-white px-6 py-2 rounded-md
            font-semibold tracking-wide
            hover:brightness-110 active:scale-95
-           transition-all shadow-md;
+           transition-all shadow-soft;
   }
 
-  /* ⚪ White/Outline Button */
-  .btn-white {
-    @apply bg-white text-orange border-2 border-orange px-6 py-2 rounded-md
+  /* 🔷 Governance Blue */
+  .btn-blue {
+    @apply bg-secondary text-white px-6 py-2 rounded-md
            font-semibold
-           hover:bg-orange hover:text-white active:scale-95
-           transition-all shadow-sm;
+           hover:brightness-110 active:scale-95
+           transition-all shadow-soft;
   }
 
-  /* 🟢 Green Button (Success/Action) */
+  /* 🟢 Vikas Green */
   .btn-green {
     @apply bg-green text-white px-6 py-2 rounded-md
            font-semibold
            hover:brightness-110 active:scale-95
-           transition-all shadow-md;
+           transition-all shadow-soft;
   }
 
-  /* ⚫ Black Button (Alternative) */
-  .btn-black {
-    @apply bg-black text-white px-6 py-2 rounded-md
-           font-semibold
-           hover:bg-opacity-80 active:scale-95
-           transition-all shadow-md;
+  /* 🟢 Outline Green (Optional) */
+  .btn-green-outline {
+    @apply border border-green text-green bg-transparent
+           px-6 py-2 rounded-md font-semibold
+           hover:bg-green hover:text-white
+           transition-all;
   }
 }

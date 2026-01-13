@@ -1,7 +1,11 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import type { Lang } from "@/layouts/MainLayout";
 import SectionHeading from "@/components/ui/SectionHeading/SectionHeading";
-import { Zap, Sun, Factory, ShieldCheck, ArrowUpRight } from "lucide-react";
+import { Milestone, School, Sprout, Landmark, Users, Zap, ArrowUpRight } from "lucide-react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface ContributionsSectionProps {
   lang: Lang;
@@ -9,109 +13,144 @@ interface ContributionsSectionProps {
 
 const ContributionsSection = ({ lang }: ContributionsSectionProps) => {
   const isHi = lang === "hi";
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const contributions = [
     {
-      titleHi: "अटल ज्योति योजना",
-      titleEn: "Atal Jyoti Yojana",
-      descHi: "मध्यप्रदेश में 24 घंटे निर्बाध विद्युत आपूर्ति सुनिश्चित करने हेतु ऐतिहासिक योजना का सफल क्रियान्वयन।",
-      descEn: "Successful implementation of the historic scheme to ensure 24×7 uninterrupted power supply in MP.",
-      icon: <Zap className="w-6 h-6" />,
-      accent: "var(--color-primary)", // Saffron
+      titleHi: "क्षेत्रीय बुनियादी ढांचा",
+      titleEn: "Regional Infrastructure",
+      descHi: "सतना में सड़कों का जाल बिछाने और राष्ट्रीय राजमार्गों की कनेक्टिविटी में अग्रणी भूमिका।",
+      descEn: "Led the expansion of road networks and NH connectivity across Satna.",
+      icon: <Milestone className="w-5 h-5 md:w-6 md:h-6" />,
+      accent: "var(--color-primary)",
     },
     {
-      titleHi: "ऊर्जा एवं नवकरणीय ऊर्जा",
-      titleEn: "Renewable Energy Reforms",
-      descHi: "विश्व के सबसे बड़े सौर ऊर्जा संयंत्रों में से एक 'रीवा अल्ट्रा मेगा सोलर' की स्थापना में महत्वपूर्ण भूमिका।",
-      descEn: "Played a pivotal role in establishing the Rewa Ultra Mega Solar, one of the world's largest solar plants.",
-      icon: <Sun className="w-6 h-6" />,
-      accent: "var(--color-green)", // Green
+      titleHi: "कृषि एवं ग्रामीण उत्थान",
+      titleEn: "Rural & Agri Support",
+      descHi: "सिंचाई परियोजनाओं और किसानों के लिए सरकारी योजनाओं का प्रभावी क्रियान्वयन।",
+      descEn: "Effective implementation of irrigation and agri-schemes for farmers.",
+      icon: <Sprout className="w-5 h-5 md:w-6 md:h-6" />,
+      accent: "var(--color-green)",
     },
     {
-      titleHi: "औद्योगिक विकास",
-      titleEn: "Industrial Growth",
-      descHi: "निवेश प्रोत्साहन और औद्योगिक गलियारों के निर्माण के माध्यम से प्रदेश में रोजगार के नए अवसरों का सृजन।",
-      descEn: "Creating new employment opportunities through investment promotion and industrial corridors.",
-      icon: <Factory className="w-6 h-6" />,
-      accent: "var(--color-secondary)", // Blue
+      titleHi: "शिक्षा एवं स्वास्थ्य सेवा",
+      titleEn: "Education & Healthcare",
+      descHi: "सरकारी स्कूलों के उन्नयन और चिकित्सा केंद्रों की स्थापना के माध्यम से सेवा।",
+      descEn: "Service through upgrading public schools and establishing medical centers.",
+      icon: <School className="w-5 h-5 md:w-6 md:h-6" />,
+      accent: "var(--color-secondary)",
+    },
+    {
+      titleHi: "संसदीय प्रतिनिधित्व",
+      titleEn: "Parliamentary Voice",
+      descHi: "संसद में सतना के मुद्दों को उठाकर विकासात्मक नीतियों के समाधान हेतु प्रयास।",
+      descEn: "Advocating for Satna's development and policy solutions in Parliament.",
+      icon: <Landmark className="w-5 h-5 md:w-6 md:h-6" />,
+      accent: "var(--color-primary)",
+    },
+    {
+      titleHi: "जनकल्याणकारी योजनाएं",
+      titleEn: "Social Welfare Schemes",
+      descHi: "उज्ज्वला और आयुष्मान जैसी योजनाओं को पात्र लाभार्थियों तक पहुँचाने में समन्वय।",
+      descEn: "Coordinating delivery of Ujjwala and Ayushman schemes to beneficiaries.",
+      icon: <Users className="w-5 h-5 md:w-6 md:h-6" />,
+      accent: "var(--color-green)",
+    },
+    {
+      titleHi: "विकास एवं संकल्प",
+      titleEn: "Vision for Growth",
+      descHi: "औद्योगिक गलियारों और रोजगार के नए अवसरों के सृजन पर विशेष ध्यान।",
+      descEn: "Focus on creating industrial corridors and new employment opportunities.",
+      icon: <Zap className="w-5 h-5 md:w-6 md:h-6" />,
+      accent: "var(--color-secondary)",
     },
   ];
 
-  return (
-    <section className="bg-bg py-24 relative overflow-hidden">
-      {/* Background Subtle Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-green/5 blur-[120px] rounded-full translate-y-1/2 -translate-x-1/2" />
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Cards Entrance: Scale + Fade + Y-Axis Slide
+      gsap.fromTo(".contribution-card", 
+        { 
+          y: 70, 
+          opacity: 0,
+          scale: 0.9 
+        }, 
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          stagger: 0.2,
+          ease: "back.out(1.2)", // हल्का सा बाउंस इफ़ेक्ट
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }, sectionRef);
 
-      <div className="mx-auto w-full relative z-10">
-        {/* Reusable Section Heading - Full Width */}
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="bg-bg py-16 md:py-24 relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute -top-24 -right-24 w-72 h-72 bg-primary/10 blur-[120px] rounded-full pointer-events-none animate-pulse" />
+      <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-green/10 blur-[120px] rounded-full pointer-events-none animate-pulse" />
+
+      <div className="mx-auto w-full relative z-10 px-5 md:px-12">
         <SectionHeading
-          subtitle={isHi ? "विजनरी नेतृत्व" : "Visionary Leadership"}
-          title={isHi ? "प्रमुख कार्य एवं उपलब्धियां" : "Major Contributions & Works"}
+          subtitle={isHi ? "30 वर्षों का सेवा संकल्प" : "30 Years of Service"}
+          title={isHi ? "प्रमुख कार्य एवं योगदान" : "Key Contributions"}
         />
 
-        {/* Cards Grid */}
-        <div className="mx-auto max-w-[100rem] px-6 md:px-12 mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto max-w-[110rem] mt-12 md:mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {contributions.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="group relative rounded-[2.5rem] border border-border bg-white p-10 transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden"
+              className="contribution-card group relative flex flex-col justify-between rounded-[2.5rem] border border-border/60 bg-white p-7 md:p-10 transition-all duration-500 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-2"
             >
-              {/* Decorative Corner Accent */}
+              {/* Hover Background Accent Glow */}
               <div 
-                className="absolute top-0 right-0 w-24 h-24 opacity-[0.03] -mr-8 -mt-8 rounded-full transition-transform duration-700 group-hover:scale-[3]"
+                className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500 rounded-[2.5rem] pointer-events-none"
                 style={{ backgroundColor: item.accent }}
               />
 
-              {/* Icon Box */}
-              <div 
-                className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-lg transition-transform duration-500 group-hover:rotate-[10deg]"
-                style={{ backgroundColor: item.accent }}
-              >
-                {item.icon}
+              <div className="absolute top-6 right-8 text-5xl md:text-6xl font-black text-secondary/5 select-none pointer-events-none group-hover:text-primary/10 transition-colors duration-500">
+                0{index + 1}
               </div>
 
-              {/* Content */}
-              <h3 className="text-2xl font-gotu font-bold text-secondary leading-tight">
-                {isHi ? item.titleHi : item.titleEn}
-              </h3>
+              <div>
+                {/* Icon Box with Float Animation on Hover */}
+                <div 
+                  className="mb-8 inline-flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-[1.25rem] text-white shadow-lg transition-all duration-500 group-hover:rotate-[10deg] group-hover:scale-110"
+                  style={{ backgroundColor: item.accent }}
+                >
+                  {item.icon}
+                </div>
 
-              <div className="my-5 h-1 w-12 rounded-full bg-border transition-all duration-500 group-hover:w-24 group-hover:bg-green" />
+                <h3 className="text-xl md:text-2xl font-gotu font-bold text-secondary leading-tight mb-3 group-hover:text-primary transition-colors">
+                  {isHi ? item.titleHi : item.titleEn}
+                </h3>
 
-              <p className="font-martel text-lg leading-relaxed text-muted/90 text-justify
-">
-                {isHi ? item.descHi : item.descEn}
-              </p>
-
-              {/* Action Link (Subtle) */}
-              <div className="mt-8 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-secondary/40 transition-colors group-hover:text-green">
-                <span>{isHi ? "अधिक जानकारी" : "Read More"}</span>
-                <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <p className="font-martel text-sm md:text-base leading-relaxed text-muted/80 group-hover:text-muted transition-colors">
+                  {isHi ? item.descHi : item.descEn}
+                </p>
               </div>
-            </motion.div>
+
+              <div className="mt-8 flex items-center justify-between">
+                <div className="h-[2px] w-10 rounded-full bg-border transition-all duration-500 group-hover:w-16 group-hover:bg-primary" />
+                <div className="p-2 rounded-full bg-transparent group-hover:bg-primary/10 transition-all duration-500">
+                   <ArrowUpRight size={18} className="text-secondary/20 group-hover:text-primary transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* Bottom Banner - Adding a "Vikas" Statement */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="mt-20 text-center"
-        >
-          <div className="inline-flex items-center gap-3 rounded-full border border-border bg-bg-soft px-8 py-4">
-             <div className="flex -space-x-2">
-                {[1,2,3].map(i => <div key={i} className={`w-3 h-3 rounded-full border-2 border-white ${i === 1 ? 'bg-primary' : i === 2 ? 'bg-green' : 'bg-secondary'}`} />)}
-             </div>
-             <p className="text-[11px] font-black uppercase tracking-[0.2em] text-muted">
-               {isHi ? "मध्य प्रदेश के उज्ज्वल भविष्य की ओर" : "Towards a brighter future for MP"}
-             </p>
-          </div>
-        </motion.div>
+      
       </div>
     </section>
   );

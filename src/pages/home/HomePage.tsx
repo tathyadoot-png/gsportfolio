@@ -38,9 +38,9 @@ const HomePage = () => {
 <section id="media">
   <GallerySection  />
 </section>
-<section id="media2">
+{/* <section id="media2">
   <AudioVideoSection lang={lang} />
-</section>
+</section> */}
 <section id="contact">
   <ContactSection  />
 </section>

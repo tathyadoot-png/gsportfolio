@@ -5,52 +5,43 @@ const StickySocial = () => {
   const socials = [
     { 
       icon: Facebook, 
-      href: "https://www.facebook.com/rajendrashuklamp", 
-      color: "#1877F2", 
-      bg: "bg-[#1877F2]/10", 
-      border: "border-[#1877F2]/20" 
+      href: "https://www.facebook.com/share/17swfiNCF2/", 
+      color: "#F97316", // Saffron
+      hoverBg: "bg-secondary", // Background on hover
+      label: "Facebook"
     },
     { 
       icon: Instagram, 
-      href: "https://www.instagram.com/rajendrashuklaofficial/", 
-      color: "#E4405F", 
-      bg: "bg-[#E4405F]/10", 
-      border: "border-[#E4405F]/20" 
+      href: "https://www.instagram.com/ganeshsingh_in", 
+      color: "#16A34A", // Green
+      hoverBg: "bg-red-600", 
+      label: "Instagram"
     },
     { 
       icon: Twitter, 
-      href: "https://x.com/rshuklabjp", 
-      color: "#000000", 
-      bg: "bg-black/5", 
-      border: "border-black/10" 
+      href: "https://x.com/GaneshSingh_in", 
+      color: "#F97316", 
+      hoverBg: "bg-secondary", // Dark for Twitter/X
+      label: "Twitter"
     },
     { 
       icon: Youtube, 
-      href: "https://www.youtube.com/@rajendrashuklamp", 
-      color: "#FF0000", 
-      bg: "bg-[#FF0000]/10", 
-      border: "border-[#FF0000]/20" 
+      href: "https://youtube.com/@ganeshsingh_in", 
+      color: "#16A34A", 
+      hoverBg: "bg-red-600", 
+      label: "Youtube"
     },
   ];
 
   return (
-    /* PLACEMENT CHANGE:
-       Mobile: Bottom-Right (Safe Zone)
-       Desktop: Center-Right (Original)
-    */
-    <div className="fixed z-[999] 
-      bottom-24 right-5 
-      md:right-5 md:top-1/2 md:-translate-y-1/2 md:bottom-auto"
-    >
-      {/* DOCK STYLE:
-          Mobile: Super compact and more transparent
-          Desktop: Your original glass dock
-      */}
-      <div className="bg-white/40 backdrop-blur-xl border border-white/30 
-        p-1.5 md:p-2.5 rounded-[2rem] 
-        shadow-[0_10px_30px_rgba(0,0,0,0.08)] 
-        flex flex-col gap-2.5 md:gap-4"
-      >
+    <div className="fixed z-[999] bottom-24 right-4 md:right-6 md:top-1/2 md:-translate-y-1/2 md:bottom-auto">
+      
+      {/* MAIN DOCK CONTAINER */}
+      <div className="relative p-2 bg-white/80 backdrop-blur-2xl border border-white/50 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] flex flex-col gap-3 md:gap-4 overflow-hidden">
+        
+        {/* Top/Bottom Decorative Accents */}
+        <div className="absolute top-0 left-0 w-full h-1.5 bg-primary/20" />
+        <div className="absolute bottom-0 left-0 w-full h-1.5 bg-green/20" />
         
         {socials.map((item, idx) => (
           <motion.a
@@ -58,33 +49,28 @@ const StickySocial = () => {
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className={`relative group 
-              h-6 w-6 md:h-12 md:w-12 
-              flex items-center justify-center rounded-full md:rounded-2xl 
-              border ${item.bg} ${item.border} 
-              transition-all duration-300`}
+            whileHover={{ scale: 1.05, x: -4 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative group h-7 w-7 md:h-14 md:w-14 flex items-center justify-center rounded-2xl transition-all duration-500"
           >
-            {/* Hover Background - Only visible on Desktop hover */}
-            <div 
-              className="absolute inset-0 rounded-full md:rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300"
-              style={{ 
-                backgroundColor: item.color, 
-                boxShadow: `0 8px 15px -5px ${item.color}88` 
-              }}
-            />
+            {/* Background Layer - Becomes visible on hover */}
+            <div className={`absolute inset-0 rounded-2xl scale-50 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 ${item.hoverBg} shadow-lg shadow-black/10`} />
             
-            {/* Icon: Slightly smaller on mobile */}
+            {/* Icon - Color changes to White on hover */}
             <item.icon 
-              className="w-3.5 h-3.5 md:w-5 md:h-5 relative z-10 transition-colors duration-300 group-hover:!text-white" 
-              style={{ color: item.color }} 
+              className={`w-5 h-5 md:w-6 md:h-6 relative z-10 transition-colors duration-300 group-hover:text-white`} 
+              style={{ color: item.color }} // Default color (set dynamically)
             />
 
-            {/* Tooltip: Hidden on Mobile */}
-            <div className="hidden md:block absolute right-full mr-5 px-3 py-1.5 rounded-xl bg-black text-white text-[10px] font-black uppercase tracking-[0.15em] opacity-0 group-hover:opacity-100 pointer-events-none transition-all translate-x-4 group-hover:translate-x-0 whitespace-nowrap">
-                Follow
-                <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-black rotate-45" />
+            {/* Hover Indicator Line */}
+            <div className={`absolute -right-2 w-1 h-0 group-hover:h-6 transition-all duration-300 rounded-full ${idx % 2 === 0 ? 'bg-primary' : 'bg-green'}`} />
+
+            {/* Premium Tooltip */}
+            <div className="hidden md:flex absolute right-full mr-6 items-center opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 translate-x-4 group-hover:translate-x-0">
+              <div className="bg-secondary text-white text-[10px] font-black uppercase tracking-[0.2em] px-4 py-2 rounded-xl shadow-xl whitespace-nowrap">
+                {item.label}
+              </div>
+              <div className="w-2 h-2 bg-secondary rotate-45 -ml-1" />
             </div>
           </motion.a>
         ))}

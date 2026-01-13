@@ -18,31 +18,34 @@ const config: Config = {
       },
     },
     extend: {
-      colors: {
-        // Essential Tricolor Palette
-        orange: "var(--color-orange)",
-        white: "var(--color-white)",
-        green: "var(--color-green)",
+      
+    colors: {
+  primary: "var(--color-primary)",     // Kesariya
+  secondary: "var(--color-secondary)", // Blue
+  green: "var(--color-green)",         // Vikas Green
 
-        // UI Core
-        primary: "var(--color-orange)", 
-        secondary: "var(--color-green)", 
-        
-        text: "var(--color-text)",
-        muted: "var(--color-text-muted)",
-        bg: "var(--color-bg)",
-        "bg-soft": "var(--color-bg-soft)",
-        border: "var(--color-border)",
-      },
-      fontFamily: {
+  text: "var(--color-text)",
+  muted: "var(--color-text-muted)",
+
+  bg: "var(--color-bg)",
+  "bg-soft": "var(--color-bg-soft)",
+
+  border: "var(--color-border)",
+},
+
+      
+     fontFamily: {
         amita: ['"Amita"', 'serif'],
         asar: ['"Asar"', 'serif'],
         gotu: ['"Gotu"', 'sans-serif'],
         playpen: ['"Playpen Sans Deva"', 'sans-serif'],
       },
       boxShadow: {
-        soft: "0 4px 20px rgba(0, 0, 0, 0.05)",
-        navbar: "0 2px 10px rgba(0, 0, 0, 0.05)",
+        soft: "0 4px 20px rgba(0, 0, 0, 0.06)",
+        navbar: "0 2px 12px rgba(0, 0, 0, 0.08)",
+      },
+      transitionTimingFunction: {
+        smooth: "cubic-bezier(0.4, 0, 0.2, 1)",
       },
     },
   },

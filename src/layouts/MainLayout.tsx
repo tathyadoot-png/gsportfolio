@@ -24,121 +24,126 @@ const MainLayout = () => {
     return () => clearTimeout(timer);
   }, [lang]);
 
-  // FIX 1: Intl.Segmenter TypeScript Error solve karne ke liye 'any' cast kiya
   const splitText = (text: string) => {
     if (!text) return [];
     try {
-      // @ts-ignore - Kuch environments mein Intl.Segmenter red line dikhayega
       const segmenter = new (Intl as any).Segmenter(isHi ? "hi" : "en", { granularity: "grapheme" });
       return Array.from(segmenter.segment(text)).map((s: any) => s.segment);
     } catch (e) {
-      // Fallback agar browser Segmenter support na kare (purane browsers)
       return text.split("");
     }
   };
 
- const firstName = useMemo(() => splitText(isHi ? "राजेन्द्र" : "RAJENDRA"), [isHi]);
-const lastName = useMemo(() => splitText(isHi ? "शुक्ल" : "SHUKLA"), [isHi]);
+  const firstName = useMemo(() => splitText(isHi ? "गणेश" : "GANESH"), [isHi]);
+  const lastName = useMemo(() => splitText(isHi ? "सिंह" : "SINGH"), [isHi]);
 
-  // FIX 2: Variants ki error solve karne ke liye structure ko simple rakha
   const textContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { 
-        staggerChildren: 0.08, 
-        delayChildren: 0.5 
-      }
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
     }
   };
 
+  // Naya Floating Animation
   const letterAnim: Variants = {
-    hidden: { 
-      opacity: 0, 
-      y: 60, 
-      rotateX: -90 
-    },
+    hidden: { opacity: 0, x: -20, filter: "blur(5px)" },
     visible: { 
-      opacity: 1, 
-      y: 0, 
-      rotateX: 0,
-      transition: { 
-        duration: 1, 
-        ease: [0.16, 1, 0.3, 1] 
-      } 
+      opacity: 1, x: 0, filter: "blur(0px)",
+      transition: { duration: 0.8, ease: "easeOut" } 
     }
   };
 
   return (
     <>
-      {/* Styles remains the same */}
       <style>{`
-        .sovereign-loader { background: #08090a; perspective: 1200px; overflow: hidden; }
-        .mesh-bg {
-          position: absolute; inset: 0;
-          background-image: 
-            radial-gradient(at 0% 0%, rgba(255, 153, 51, 0.08) 0, transparent 50%), 
-            radial-gradient(at 100% 100%, rgba(0, 128, 0, 0.08) 0, transparent 50%);
+        .ganesh-white-loader { 
+          background: #ffffff; 
+          background-image: radial-gradient(#f0f0f0 1px, transparent 1px);
+          background-size: 30px 30px;
+          overflow: hidden; 
         }
-        .scanline {
-          width: 100%; height: 15vh; z-index: 5;
-          background: linear-gradient(0deg, transparent 0%, rgba(255,153,51,0.03) 50%, transparent 100%);
-          position: absolute; animation: scan 3s linear infinite;
+        .royal-border {
+          position: absolute;
+          border: 1px solid rgba(255, 153, 51, 0.2);
+          inset: 20px;
+          pointer-events: none;
         }
-        @keyframes scan { 0% { transform: translateY(-100vh); } 100% { transform: translateY(100vh); } }
+        .sun-glow {
+          position: absolute;
+          width: 600px; height: 600px;
+          background: radial-gradient(circle, rgba(255, 153, 51, 0.05) 0%, transparent 70%);
+          top: -200px; right: -200px;
+          border-radius: 50%;
+        }
       `}</style>
 
       <AnimatePresence mode="wait">
         {loading && (
           <motion.div
             key="loader"
-            className="fixed inset-0 z-[9999] sovereign-loader flex flex-col items-center justify-center px-4"
-            exit={{ opacity: 0, filter: "blur(15px)", transition: { duration: 0.8 } }}
+            className="fixed inset-0 z-[9999] ganesh-white-loader flex flex-col items-center justify-center"
+            exit={{ opacity: 0, scale: 1.1, transition: { duration: 0.6 } }}
           >
-            <div className="mesh-bg" />
-            <div className="scanline" />
+            <div className="sun-glow" />
+            <div className="royal-border" />
 
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} className="absolute top-10 sm:top-16">
-              <img src={bjp} className="w-12 sm:w-16 grayscale" alt="BJP" />
+            {/* BJP Logo with Rotating Shadow */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="relative z-20 mb-10"
+            >
+              <img src={bjp} className="w-20 h-20 object-contain" alt="BJP" />
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 border-2 border-dashed border-primary/20 rounded-full scale-150"
+              />
             </motion.div>
 
-          <motion.div 
-  variants={textContainer}
-  initial="hidden"
-  animate="visible"
-  className="z-10 text-center w-full"
->
-  <div className="flex justify-center overflow-hidden mb-2">
-    <h2 className={`flex text-white text-[14vw] sm:text-[10vw] md:text-[6vw] font-black italic ${isHi ? "-space-x-1 sm:-space-x-2" : "tracking-tighter"}`}>
-      {firstName.map((l, i) => (
-        <motion.span key={i} variants={letterAnim} className="inline-block">
-          {l}
-        </motion.span>
-      ))}
-    </h2>
-  </div>
+            <motion.div variants={textContainer} initial="hidden" animate="visible" className="z-10 text-center">
+              {/* First Name (GANESH) - Ab ye Navy Blue mein hai (Trust Color) */}
+              <div className="flex justify-center mb-1">
+                <h2 className="flex text-primary text-[12vw] sm:text-[8vw] font-black tracking-widest uppercase">
+                  {firstName.map((l, i) => (
+                    <motion.span key={i} variants={letterAnim}>{l}</motion.span>
+                  ))}
+                </h2>
+              </div>
 
-  <motion.div 
-    initial={{ width: 0 }} 
-    animate={{ width: "60%" }} 
-    className="h-[1px] bg-gradient-to-r from-transparent via-orange-500/50 to-transparent mx-auto my-4 sm:my-6" 
-  />
+              {/* Tri-color Divider Line */}
+              <div className="flex items-center justify-center gap-1 my-4">
+                <motion.div initial={{ width: 0 }} animate={{ width: "40px" }} className="h-1 bg-primary rounded-full" />
+                <motion.div initial={{ width: 0 }} animate={{ width: "40px" }} transition={{ delay: 0.2 }} className="h-1 bg-slate-200 rounded-full" />
+                <motion.div initial={{ width: 0 }} animate={{ width: "40px" }} transition={{ delay: 0.4 }} className="h-1 bg-green rounded-full" />
+              </div>
 
-  <div className="flex justify-center overflow-hidden">
-    {/* Yahan maine '-space-x' use kiya hai jo 'शु' aur 'क्ल' ko pas layega */}
-    <h2 className={`flex text-orange-500/90 text-[11vw] sm:text-[8vw] md:text-[5vw] font-light uppercase ${isHi ? "-space-x-1 sm:-space-x-2" : "tracking-[0.3em]"}`}>
-      {lastName.map((l, i) => (
-        <motion.span key={i} variants={letterAnim} className="inline-block">
-          {l}
-        </motion.span>
-      ))}
-    </h2>
-  </div>
-</motion.div>
+              {/* Last Name (SINGH) - Ab ye Green mein hai (Growth Color) */}
+              <div className="flex justify-center">
+                <h2 className={`flex text-green text-[10vw] sm:text-[6vw] font-light uppercase italic ${isHi ? "space-x-1" : "tracking-[0.5em]"}`}>
+                  {lastName.map((l, i) => (
+                    <motion.span key={i} variants={letterAnim}>{l}</motion.span>
+                  ))}
+                </h2>
+              </div>
+            </motion.div>
 
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.4 }} className="absolute bottom-12 text-center">
-              <p className="text-white text-[8px] sm:text-[10px] tracking-[0.5em] uppercase mb-1">Rewa • Madhya Pradesh</p>
-              <div className="h-[1px] w-8 bg-orange-500/40 mx-auto" />
+            {/* Bottom Content: Satna Legacy */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ delay: 0.8 }}
+              className="absolute bottom-20 text-center z-20"
+            >
+              <p className="text-secondary font-bold text-[17px] sm:text-[12px] tracking-[0.4em] uppercase">
+                {isHi ? "3 दशक का अटूट विश्वास" : "3 Decades of Unshakable Trust"}
+              </p>
+              <div className="mt-2 flex items-center justify-center gap-2">
+                <span className="h-[2px] w-4 bg-primary" />
+                <span className="text-[9px] text-secondary font-medium uppercase tracking-tighter">Satna Constituency</span>
+                <span className="h-[2px] w-4 bg-green" />
+              </div>
             </motion.div>
           </motion.div>
         )}
@@ -149,7 +154,7 @@ const lastName = useMemo(() => splitText(isHi ? "शुक्ल" : "SHUKLA"), [
           <Navbar lang={lang} setLang={setLang} />
           <StickySocial /> 
           <ScrollToTop />
-          <main className="min-h-screen bg-[#fcfcfc]">
+          <main className="min-h-screen bg-white">
             <Outlet context={{ lang }} />
           </main>
           <Footer lang={lang} />
