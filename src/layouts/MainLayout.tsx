@@ -105,7 +105,7 @@ const MainLayout = () => {
             <motion.div variants={textContainer} initial="hidden" animate="visible" className="z-10 text-center">
               {/* First Name (GANESH) - Ab ye Navy Blue mein hai (Trust Color) */}
               <div className="flex justify-center mb-1">
-                <h2 className="flex text-primary text-[12vw] sm:text-[8vw] font-black tracking-widest uppercase">
+                <h2 className="flex text-primary text-[12vw] sm:text-[8vw] font-black  uppercase">
                   {firstName.map((l, i) => (
                     <motion.span key={i} variants={letterAnim}>{l}</motion.span>
                   ))}
@@ -136,12 +136,12 @@ const MainLayout = () => {
               transition={{ delay: 0.8 }}
               className="absolute bottom-20 text-center z-20"
             >
-              <p className="text-secondary font-bold text-[17px] sm:text-[12px] tracking-[0.4em] uppercase">
+              <p className="text-secondary font-bold text-[17px] sm:text-[12px]  uppercase">
                 {isHi ? "3 दशक का अटूट विश्वास" : "3 Decades of Unshakable Trust"}
               </p>
               <div className="mt-2 flex items-center justify-center gap-2">
                 <span className="h-[2px] w-4 bg-primary" />
-                <span className="text-[9px] text-secondary font-medium uppercase tracking-tighter">Satna Constituency</span>
+                <span className="text-[9px] text-secondary font-medium uppercase ">Satna Constituency</span>
                 <span className="h-[2px] w-4 bg-green" />
               </div>
             </motion.div>

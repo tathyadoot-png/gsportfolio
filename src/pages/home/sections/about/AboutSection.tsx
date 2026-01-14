@@ -20,13 +20,13 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // 1. Image Clip-Path Reveal (Premium Effect)
+      // Image Clip-Path Reveal
       gsap.fromTo(".img-reveal", 
-        { clipPath: "inset(100% 0% 0% 0%)" }, 
+        { clipPath: "inset(0% 0% 100% 0%)" }, 
         {
           clipPath: "inset(0% 0% 0% 0%)",
-          duration: 1.5,
-          ease: "power4.inOut",
+          duration: 1.8,
+          ease: "expo.inOut",
           scrollTrigger: {
             trigger: ".img-wrapper",
             start: "top 85%",
@@ -34,22 +34,7 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
         }
       );
 
-      // 2. Parallax Effect on Image
-      gsap.fromTo(".parallax-img", 
-        { yPercent: -10 }, 
-        {
-          yPercent: 10,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".img-wrapper",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true
-          }
-        }
-      );
-
-      // 3. Text & Elements Reveal Timeline
+      // Text & Elements Reveal Timeline
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -57,26 +42,20 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
         }
       });
 
-      tl.from(".reveal-text", {
+      tl.from(".reveal-text-item", {
         y: 40,
         opacity: 0,
-        stagger: 0.15,
+        stagger: 0.1,
         duration: 1,
         ease: "power3.out"
       })
       .from(".info-card-gsap", {
         y: 30,
         opacity: 0,
-        stagger: 0.1,
+        stagger: 0.12,
         duration: 0.8,
         ease: "back.out(1.2)"
-      }, "-=0.5")
-      .from(".stats-badge", {
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.6,
-        ease: "power2.out"
-      }, "-=0.3");
+      }, "-=0.5");
 
     }, sectionRef);
     return () => ctx.revert();
@@ -91,7 +70,7 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
 
       <div className="max-w-[1860px] mx-auto px-5 md:px-12 lg:px-20">
         
-        <div className="mb-12 md:mb-20 reveal-text">
+        <div className="mb-12 md:mb-20 reveal-text-item">
           <SectionHeading
             subtitle={isHi ? "सेवा का संकल्प, विकास ही विकल्प" : "Driven by service, defined by progress"}
             title={isHi ? "व्यक्तित्व" : "Biography"}
@@ -104,24 +83,24 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
           <div className="lg:col-span-7 space-y-8 md:space-y-12 order-2 lg:order-1">
             
             <div className="space-y-5 md:space-y-7">
-              <div className="reveal-text inline-flex items-center gap-2 px-4 py-1.5 bg-green/10 rounded-full border border-green/20">
+              <div className="reveal-text-item inline-flex items-center gap-2 px-4 py-1.5 bg-green/10 rounded-full border border-green/20">
                 <div className="w-1.5 h-1.5 rounded-full bg-green animate-pulse" />
                 <span className="text-[10px] md:text-xs font-black text-green uppercase tracking-widest">
                   {isHi ? "5 बार निर्वाचित सांसद" : "5-Time Elected MP"}
                 </span>
               </div>
               
-              <h3 className="reveal-text font-[Gotu] text-2xl md:text-5xl font-bold text-secondary leading-[1.15]">
+              <h3 className="reveal-text-item font-[Gotu] text-2xl md:text-5xl font-bold text-secondary leading-[1.15]">
                 {isHi 
                   ? "सतना के विकास के लिए समर्पित तीन दशकों का अटूट विश्वास।" 
                   : "Three decades of unwavering trust dedicated to Satna's development."}
               </h3>
 
-              <div className="reveal-text flex gap-4 md:gap-6 items-start">
+              <div className="reveal-text-item flex gap-4 md:gap-6 items-start">
                 <Quote className="text-primary shrink-0 opacity-20 size-8 md:size-12" />
                 <p className="font-[Martel] text-base md:text-xl text-slate-600 leading-relaxed text-justify">
                   {isHi 
-                    ? "गणेश सिंह जी का जन्म 2 जुलाई 1962 को हुआ। उन्होंने समाजशास्त्र और विधि में उच्च शिक्षा प्राप्त की। छात्र राजनीति से अपना सफर शुरू कर आज लगातार 5वीं बार संसद में सतना का प्रतिनिधित्व कर रहे हैं।"
+                    ? "गणेश सिंह जी का जन्म 2 juli 1962 को हुआ। उन्होंने समाजशास्त्र और विधि में उच्च शिक्षा प्राप्त की। छात्र राजनीति से अपना सफर शुरू कर आज लगातार 5वीं बार संसद में सतna का प्रतिनिधित्व कर रहे हैं।"
                     : "Born on July 2, 1962, Ganesh Singh holds degrees in Sociology and Law. Starting from student politics, he is now representing Satna for the 5th consecutive time."}
                 </p>
               </div>
@@ -141,41 +120,59 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
                 <p className="text-sm text-slate-500">32+ {isHi ? "वर्षों का अनुभव" : "Years Experience"}</p>
               </div>
 
-              <div className="info-card-gsap md:col-span-2 p-6 md:p-10 bg-secondary text-white rounded-[2rem] relative overflow-hidden group">
-                {/* Subtle BG Pattern */}
-                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              {/* NEW REFINED IMPACT SECTION (No 100%) */}
+              <div className="info-card-gsap md:col-span-2 p-8 md:p-12 bg-secondary text-white rounded-[2.5rem] relative overflow-hidden group shadow-2xl border border-white/5">
                 
-                <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10">
-                  <div className="text-center md:text-left">
-                    <p className="text-green font-black text-[10px] uppercase  mb-2">{isHi ? "संसदीय कार्यकाल" : "Parliamentary Terms"}</p>
-                    <h4 className="text-2xl md:text-4xl font-[Gotu] font-bold">{isHi ? "लगातार 5 बार जीत" : "5 Consecutive Wins"}</h4>
-                    <p className="text-white/40 text-xs mt-2 font-martel italic">2004 - {new Date().getFullYear()}</p>
+                <div className="absolute inset-0 bg-gradient-to-br from-green/15 via-transparent to-transparent" />
+                
+                <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+                  <div className="space-y-4 text-center md:text-left">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full border border-white/10">
+                      <span className="text-[10px] font-black uppercase tracking-wider text-green">
+                        {isHi ? "संसदीय विरासत" : "Parliamentary Legacy"}
+                      </span>
+                    </div>
+                    <h4 className="text-3xl md:text-5xl font-[Gotu] font-bold">
+                      {isHi ? "05 बार निरंतर विजय" : "05 Consecutive Victories"}
+                    </h4>
+                    <p className="text-white/60 text-sm md:text-base max-w-md">
+                      {isHi 
+                        ? "2004 से आज तक, सतना की जनता का अटूट प्रेम और विश्वास ही मेरी असली पूंजी है।" 
+                        : "Since 2004, the unwavering love and trust of Satna's people has been my greatest strength."}
+                    </p>
                   </div>
-                  <div className="stats-badge flex flex-col items-center bg-white/10 backdrop-blur-md px-6 py-5 rounded-[1.5rem] border border-white/10 min-w-[140px]">
-                    <span className="text-4xl md:text-5xl font-black text-green">100%</span>
-                    <span className="text-[9px] font-black uppercase tracking-widest text-white/60 mt-1">{isHi ? "लोकप्रियता" : "Popularity"}</span>
+
+                  <div className="flex gap-8 items-center">
+                    <div className="h-20 w-[1px] bg-white/20 hidden md:block" />
+                    <div className="text-center">
+                      <p className="text-5xl md:text-6xl font-black italic text-white leading-none">30+</p>
+                      <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-green mt-2">
+                        {isHi ? "वर्षों की सेवा" : "Years of Service"}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <Award className="absolute -right-8 -bottom-8 text-white/5 rotate-12 size-40 md:size-56" />
+
+                <Award className="absolute -right-16 -bottom-16 text-white/[0.04] rotate-12 size-64 pointer-events-none" />
               </div>
             </div>
           </div>
 
           {/* RIGHT: IMAGE AREA */}
           <div className="lg:col-span-5 order-1 lg:order-2">
-            <div className="img-wrapper img-reveal relative h-[400px] md:h-[600px] lg:h-[700px] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl">
-              <img 
-                src={img18} 
-                className="parallax-img absolute inset-0 w-full h-full object-cover object-top scale-110" 
-                alt="Ganesh Singh" 
-              />
-              {/* Refined Overlays */}
-              <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent opacity-60" />
-              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[2rem] md:rounded-[3rem]" />
+            <div className="img-wrapper relative h-[450px] md:h-[650px] lg:h-[750px] rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden shadow-2xl">
+              <div className="img-reveal w-full h-full">
+                <img 
+                  src={img18} 
+                  className="w-full h-full object-cover object-top scale-105" 
+                  alt="Ganesh Singh" 
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-transparent to-transparent opacity-70" />
               
-              <div className="absolute bottom-8 left-8 right-8 p-6 md:p-8 bg-white/10 backdrop-blur-xl rounded-[1.5rem] md:rounded-[2rem] border border-white/20 shadow-2xl">
-                <p className="text-green font-black text-[10px] md:text-xs uppercase  mb-2">{isHi ? "लोकसभा क्षेत्र" : "Constituency"}</p>
-                <h4 className="text-white text-2xl md:text-3xl font-[Gotu] font-bold">{isHi ? "सतना, मध्य प्रदेश" : "Satna, MP"}</h4>
+              <div className="absolute bottom-10 left-10 right-10 p-8 bg-white/10 backdrop-blur-2xl rounded-[2rem] border border-white/20 shadow-2xl">
+                <p className="text-green font-black text-xs uppercase mb-2 tracking-widest">{isHi ? "लोकसभा क्षेत्र" : "Constituency"}</p>
+                <h4 className="text-white text-3xl md:text-4xl font-[Gotu] font-bold">{isHi ? "सतना, मध्य प्रदेश" : "Satna, MP"}</h4>
               </div>
             </div>
           </div>

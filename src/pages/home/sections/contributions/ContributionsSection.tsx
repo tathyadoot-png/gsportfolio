@@ -17,140 +17,150 @@ const ContributionsSection = ({ lang }: ContributionsSectionProps) => {
 
   const contributions = [
     {
-      titleHi: "क्षेत्रीय बुनियादी ढांचा",
-      titleEn: "Regional Infrastructure",
-      descHi: "सतना में सड़कों का जाल बिछाने और राष्ट्रीय राजमार्गों की कनेक्टिविटी में अग्रणी भूमिका।",
-      descEn: "Led the expansion of road networks and NH connectivity across Satna.",
-      icon: <Milestone className="w-5 h-5 md:w-6 md:h-6" />,
-      accent: "var(--color-primary)",
+      title: isHi ? "क्षेत्रीय समग्र विकास" : "Holistic Regional Growth",
+      shortDesc: isHi ? "सड़क, शिक्षा और बुनियादी ढांचे को प्राथमिकता।" : "Prioritizing roads, education, and infrastructure.",
+      fullDetail: isHi 
+        ? "गणेश सिंह ने सतना लोकसभा क्षेत्र में सड़क, शिक्षा, स्वास्थ्य और बुनियादी ढांचे के विकास को प्राथमिकता दी। उनके प्रयासों से क्षेत्र में संपर्क सुविधा और सार्वजनिक सेवाओं में निरंतर सुधार हुआ।"
+        : "Ganesh Singh prioritized the development of roads, education, health, and infrastructure in Satna. His efforts led to continuous improvements in connectivity and public services.",
+      icon: <Milestone className="w-6 h-6" />,
+      accent: "#e46b2e",
     },
     {
-      titleHi: "कृषि एवं ग्रामीण उत्थान",
-      titleEn: "Rural & Agri Support",
-      descHi: "सिंचाई परियोजनाओं और किसानों के लिए सरकारी योजनाओं का प्रभावी क्रियान्वयन।",
-      descEn: "Effective implementation of irrigation and agri-schemes for farmers.",
-      icon: <Sprout className="w-5 h-5 md:w-6 md:h-6" />,
-      accent: "var(--color-green)",
+      title: isHi ? "ग्रामीण एवं कृषि समर्थन" : "Rural & Agri Support",
+      shortDesc: isHi ? "किसानों और ग्राम पंचायतों का सशक्तिकरण।" : "Empowering farmers and Gram Panchayats.",
+      fullDetail: isHi 
+        ? "ग्रामीण पृष्ठभूमि से जुड़े होने के कारण उन्होंने किसानों, ग्रामीण श्रमिकों और ग्राम पंचायतों की समस्याओं पर विशेष ध्यान दिया। सिंचाई और कृषि योजनाओं को ज़मीनी स्तर तक पहुँचाने में सक्रिय भूमिका निभाई।"
+        : "Coming from a rural background, he focused on the issues of farmers and rural laborers. He played an active role in bringing irrigation and agricultural schemes to the grassroots level.",
+      icon: <Sprout className="w-6 h-6" />,
+      accent: "#159172",
     },
     {
-      titleHi: "शिक्षा एवं स्वास्थ्य सेवा",
-      titleEn: "Education & Healthcare",
-      descHi: "सरकारी स्कूलों के उन्नयन और चिकित्सा केंद्रों की स्थापना के माध्यम से सेवा।",
-      descEn: "Service through upgrading public schools and establishing medical centers.",
-      icon: <School className="w-5 h-5 md:w-6 md:h-6" />,
-      accent: "var(--color-secondary)",
+      title: isHi ? "जनकल्याण योजनाओं का क्रियान्वयन" : "Welfare Scheme Delivery",
+      shortDesc: isHi ? "लाभार्थियों तक सीधा लाभ पहुँचाने में समन्वय।" : "Coordinating direct benefits to beneficiaries.",
+      fullDetail: isHi 
+        ? "केंद्र सरकार की विभिन्न जनकल्याणकारी योजनाओं को पात्र लाभार्थियों तक पहुँचाने के लिए उन्होंने प्रशासन के साथ समन्वय स्थापित किया, जिससे आम नागरिकों को योजनाओं का प्रत्यक्ष लाभ मिला।"
+        : "He coordinated with the administration to ensure that various welfare schemes of the Central Government reached eligible beneficiaries, providing direct benefits to common citizens.",
+      icon: <Users className="w-6 h-6" />,
+      accent: "#112250",
     },
     {
-      titleHi: "संसदीय प्रतिनिधित्व",
-      titleEn: "Parliamentary Voice",
-      descHi: "संसद में सतना के मुद्दों को उठाकर विकासात्मक नीतियों के समाधान हेतु प्रयास।",
-      descEn: "Advocating for Satna's development and policy solutions in Parliament.",
-      icon: <Landmark className="w-5 h-5 md:w-6 md:h-6" />,
-      accent: "var(--color-primary)",
+      title: isHi ? "संसदीय सशक्त आवाज़" : "Strong Voice in Parliament",
+      shortDesc: isHi ? "क्षेत्रीय मुद्दों को संसद के पटल पर उठाना।" : "Raising regional issues on the floor of Parliament.",
+      fullDetail: isHi 
+        ? "संसद में उन्होंने सतना और आसपास के क्षेत्रों से जुड़े सामाजिक, आर्थिक और विकासात्मक मुद्दों को लगातार उठाया और उनके समाधान के लिए निरंतर प्रयास किए।"
+        : "In Parliament, he consistently raised social, economic, and developmental issues related to Satna and surrounding areas, striving for their effective resolution.",
+      icon: <Landmark className="w-6 h-6" />,
+      accent: "#e46b2e",
     },
     {
-      titleHi: "जनकल्याणकारी योजनाएं",
-      titleEn: "Social Welfare Schemes",
-      descHi: "उज्ज्वला और आयुष्मान जैसी योजनाओं को पात्र लाभार्थियों तक पहुँचाने में समन्वय।",
-      descEn: "Coordinating delivery of Ujjwala and Ayushman schemes to beneficiaries.",
-      icon: <Users className="w-5 h-5 md:w-6 md:h-6" />,
-      accent: "var(--color-green)",
+      title: isHi ? "स्थायी नेतृत्व एवं जनसंपर्क" : "Stable Leadership & Outreach",
+      shortDesc: isHi ? "5 बार का अटूट विश्वास और सीधा संपर्क।" : "5-term unwavering trust and direct contact.",
+      fullDetail: isHi 
+        ? "लगातार पाँच बार सांसद निर्वाचित होने के कारण उन्होंने क्षेत्र में स्थिर नेतृत्व और निरंतर जनसंपर्क बनाए रखा, जिससे जनता की समस्याओं का समय पर समाधान संभव हुआ।"
+        : "Elected as MP five consecutive times, he maintained stable leadership and constant public contact, enabling the timely resolution of public grievances.",
+      icon: <Zap className="w-6 h-6" />,
+      accent: "#159172",
     },
     {
-      titleHi: "विकास एवं संकल्प",
-      titleEn: "Vision for Growth",
-      descHi: "औद्योगिक गलियारों और रोजगार के नए अवसरों के सृजन पर विशेष ध्यान।",
-      descEn: "Focus on creating industrial corridors and new employment opportunities.",
-      icon: <Zap className="w-5 h-5 md:w-6 md:h-6" />,
-      accent: "var(--color-secondary)",
+      title: isHi ? "शिक्षा एवं भविष्य निर्माण" : "Education & Future Growth",
+      shortDesc: isHi ? "युवाओं के लिए बेहतर अवसर और स्कूल उन्नयन।" : "Better opportunities and school upgrades for youth.",
+      fullDetail: isHi 
+        ? "सरकारी स्कूलों के कायाकल्प और उच्च शिक्षा के अवसरों के सृजन के माध्यम से उन्होंने सतना के युवाओं के भविष्य को संवारने के लिए ठोस कदम उठाए।"
+        : "Through the transformation of public schools and creating higher education opportunities, he took concrete steps to shape the future of Satna's youth.",
+      icon: <School className="w-6 h-6" />,
+      accent: "#112250",
     },
   ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Cards Entrance: Scale + Fade + Y-Axis Slide
       gsap.fromTo(".contribution-card", 
-        { 
-          y: 70, 
-          opacity: 0,
-          scale: 0.9 
-        }, 
+        { y: 50, opacity: 0 }, 
         {
-          y: 0,
-          opacity: 1,
-          scale: 1,
+          y: 0, opacity: 1,
           duration: 1,
-          stagger: 0.2,
-          ease: "back.out(1.2)", // हल्का सा बाउंस इफ़ेक्ट
+          stagger: 0.15,
+          ease: "expo.out",
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 80%",
-            toggleActions: "play none none reverse",
           },
         }
       );
     }, sectionRef);
-
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-bg py-16 md:py-24 relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute -top-24 -right-24 w-72 h-72 bg-primary/10 blur-[120px] rounded-full pointer-events-none animate-pulse" />
-      <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-green/10 blur-[120px] rounded-full pointer-events-none animate-pulse" />
-
-      <div className="mx-auto w-full relative z-10 px-5 md:px-12">
+    <section ref={sectionRef} className="bg-white py-20 md:py-32 relative overflow-hidden">
+      <div className="mx-auto w-full relative z-10 px-5 md:px-12 lg:px-6">
+        
         <SectionHeading
-          subtitle={isHi ? "30 वर्षों का सेवा संकल्प" : "30 Years of Service"}
+          subtitle={isHi ? "जन-जन का विश्वास, सतना का विकास" : "Trust of the People, Progress of Satna"}
           title={isHi ? "प्रमुख कार्य एवं योगदान" : "Key Contributions"}
         />
 
-        <div className="mx-auto max-w-[110rem] mt-12 md:mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto max-w-[1600px] mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {contributions.map((item, index) => (
             <div
               key={index}
-              className="contribution-card group relative flex flex-col justify-between rounded-[2.5rem] border border-border/60 bg-white p-7 md:p-10 transition-all duration-500 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-2"
+              className="contribution-card group relative h-[380px] w-full rounded-[2rem] bg-[#F8FAFC] border border-slate-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-transparent"
             >
-              {/* Hover Background Accent Glow */}
+              {/* --- FRONT SIDE --- */}
+              <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between transition-all duration-700 ease-in-out group-hover:-translate-y-full group-hover:opacity-0">
+                <div>
+                  <div 
+                    className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-lg shadow-black/5"
+                    style={{ backgroundColor: item.accent }}
+                  >
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-[Gotu] font-bold text-slate-900 mb-4 leading-tight">
+                    {item.title}
+                  </h3>
+                  <p className="font-[Martel] text-slate-500 text-sm md:text-base leading-relaxed">
+                    {item.shortDesc}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-widest">
+                  <span>{isHi ? "पूरा पढ़ें" : "Read More"}</span>
+                  <ArrowUpRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+
+              {/* --- BACK SIDE (Detailed Content) --- */}
               <div 
-                className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500 rounded-[2.5rem] pointer-events-none"
+                className="absolute inset-0 p-8 md:p-10 flex flex-col justify-center translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 ease-[cubic-bezier(0.23, 1, 0.32, 1)]"
                 style={{ backgroundColor: item.accent }}
-              />
+              >
+                <div className="mb-6 h-1 w-12 bg-white/30 rounded-full" />
+                
+                <h4 className="text-white font-[Gotu] text-lg font-bold mb-4 opacity-90">
+                  {item.title}
+                </h4>
 
-              <div className="absolute top-6 right-8 text-5xl md:text-6xl font-black text-secondary/5 select-none pointer-events-none group-hover:text-primary/10 transition-colors duration-500">
-                0{index + 1}
-              </div>
-
-              <div>
-                {/* Icon Box with Float Animation on Hover */}
-                <div 
-                  className="mb-8 inline-flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-[1.25rem] text-white shadow-lg transition-all duration-500 group-hover:rotate-[10deg] group-hover:scale-110"
-                  style={{ backgroundColor: item.accent }}
-                >
-                  {item.icon}
-                </div>
-
-                <h3 className="text-xl md:text-2xl font-gotu font-bold text-secondary leading-tight mb-3 group-hover:text-primary transition-colors">
-                  {isHi ? item.titleHi : item.titleEn}
-                </h3>
-
-                <p className="font-martel text-sm md:text-base leading-relaxed text-muted/80 group-hover:text-muted transition-colors">
-                  {isHi ? item.descHi : item.descEn}
+                <p className="text-white font-[Martel] text-sm md:text-base leading-relaxed text-justify">
+                  {item.fullDetail}
                 </p>
+
+                <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+                   <span className="text-white/40 text-[10px] font-bold uppercase tracking-widest italic">
+                     Satna Vikas Yatra
+                   </span>
+                   <div className="h-8 w-8 rounded-full bg-white/10 flex items-center justify-center">
+                     <ArrowUpRight size={14} className="text-white rotate-180" />
+                   </div>
+                </div>
               </div>
 
-              <div className="mt-8 flex items-center justify-between">
-                <div className="h-[2px] w-10 rounded-full bg-border transition-all duration-500 group-hover:w-16 group-hover:bg-primary" />
-                <div className="p-2 rounded-full bg-transparent group-hover:bg-primary/10 transition-all duration-500">
-                   <ArrowUpRight size={18} className="text-secondary/20 group-hover:text-primary transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </div>
+              {/* Background Index Number */}
+              <div className="absolute top-6 right-8 text-5xl font-black text-slate-200/50 select-none group-hover:hidden transition-all">
+                0{index + 1}
               </div>
             </div>
           ))}
         </div>
-
-      
       </div>
     </section>
   );
