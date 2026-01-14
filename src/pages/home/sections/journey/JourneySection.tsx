@@ -204,7 +204,7 @@ useEffect(() => {
       <div className="pt-8">
         {/* Year Label with Floating Effect */}
         <div className="flex justify-center mb-[-25px] relative z-20">
-          <span className="bg-bg px-4 py-1 text-secondary/40 font-black text-5xl font-[Gotu] tracking-tighter italic">
+          <span className="bg-bg px-4 py-1 text-secondary/40 font-black text-5xl font-[Gotu]  italic">
             {item.year.split('–')[0]}
           </span>
         </div>

@@ -78,7 +78,7 @@ const LeadershipSection = ({ lang }: LeadershipSectionProps) => {
         <div className="mb-16 md:mb-24">
           <SectionHeading
             subtitle={isHi ? "32+ वर्षों का अटूट विश्वास" : "32+ Years of Trusted Leadership"}
-            title={isHi ? "विजनरी नेतृत्व" : "Visionary Leadership"}
+            title={isHi ? "दूरदर्शी नेतृत्व" : "Visionary Leadership"}
           />
         </div>
 

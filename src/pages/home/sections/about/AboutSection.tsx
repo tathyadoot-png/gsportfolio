@@ -147,7 +147,7 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
                 
                 <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10">
                   <div className="text-center md:text-left">
-                    <p className="text-green font-black text-[10px] uppercase tracking-[0.3em] mb-2">{isHi ? "संसदीय कार्यकाल" : "Parliamentary Terms"}</p>
+                    <p className="text-green font-black text-[10px] uppercase  mb-2">{isHi ? "संसदीय कार्यकाल" : "Parliamentary Terms"}</p>
                     <h4 className="text-2xl md:text-4xl font-[Gotu] font-bold">{isHi ? "लगातार 5 बार जीत" : "5 Consecutive Wins"}</h4>
                     <p className="text-white/40 text-xs mt-2 font-martel italic">2004 - {new Date().getFullYear()}</p>
                   </div>
@@ -174,7 +174,7 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[2rem] md:rounded-[3rem]" />
               
               <div className="absolute bottom-8 left-8 right-8 p-6 md:p-8 bg-white/10 backdrop-blur-xl rounded-[1.5rem] md:rounded-[2rem] border border-white/20 shadow-2xl">
-                <p className="text-green font-black text-[10px] md:text-xs uppercase tracking-[0.4em] mb-2">{isHi ? "लोकसभा क्षेत्र" : "Constituency"}</p>
+                <p className="text-green font-black text-[10px] md:text-xs uppercase  mb-2">{isHi ? "लोकसभा क्षेत्र" : "Constituency"}</p>
                 <h4 className="text-white text-2xl md:text-3xl font-[Gotu] font-bold">{isHi ? "सतना, मध्य प्रदेश" : "Satna, MP"}</h4>
               </div>
             </div>

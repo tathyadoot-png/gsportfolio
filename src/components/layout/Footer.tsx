@@ -27,7 +27,7 @@ const Footer = ({ lang }: { lang: Lang }) => {
         {/* Top Section: Branding & Links */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 pb-12">
           <div className="text-center lg:text-left space-y-2">
-            <h2 className="font-gotu text-3xl md:text-4xl font-black text-secondary tracking-tighter uppercase">
+            <h2 className="font-gotu text-3xl md:text-4xl font-black text-secondary  uppercase">
               {isHi ? "गणेश सिंह" : "Ganesh Singh"}
             </h2>
             <div className="flex items-center justify-center lg:justify-start gap-2">
@@ -42,7 +42,7 @@ const Footer = ({ lang }: { lang: Lang }) => {
               <a 
                 key={idx} 
                 href={link.path} 
-                className="relative text-[11px] font-black text-secondary/50 hover:text-secondary transition-colors uppercase tracking-[0.2em] group"
+                className="relative text-[11px] font-black text-secondary/50 hover:text-secondary transition-colors uppercase  group"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
@@ -62,12 +62,12 @@ const Footer = ({ lang }: { lang: Lang }) => {
         <div className="mb-8 rounded-3xl md:rounded-full bg-secondary p-2 pl-8 pr-2 flex flex-col md:flex-row items-center justify-between gap-4 shadow-2xl shadow-secondary/20">
           
           <div className="flex items-center gap-6 py-4 md:py-0">
-            <p className="text-white/20 text-[9px] font-black uppercase tracking-[0.2em] hidden lg:block">
+            <p className="text-white/20 text-[9px] font-black uppercase hidden lg:block">
               © {new Date().getFullYear()} Exclusive
             </p>
             <div className="hidden lg:block h-4 w-px bg-white/10" />
             <div className="flex items-center gap-2">
-              <span className="text-white/80 text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+              <span className="text-white/80 text-[10px] font-bold uppercase flex items-center gap-2">
                 Made with <Heart className="w-3 h-3 text-primary fill-primary" /> 
               </span>
             </div>
@@ -79,7 +79,7 @@ const Footer = ({ lang }: { lang: Lang }) => {
             rel="noopener noreferrer"
             className="w-full md:w-auto flex items-center justify-between gap-6 bg-white/5 hover:bg-white/10 pl-6 pr-1 py-1 rounded-full border border-white/5 transition-all group"
           >
-            <span className="text-[10px] font-black text-white/40 uppercase tracking-[0.2em]">Digital Partner</span>
+            <span className="text-[10px] font-black text-white/40 uppercase ">Digital Partner</span>
             <div className="flex items-center gap-4">
                <img 
                  src={logo} 
@@ -100,7 +100,7 @@ const Footer = ({ lang }: { lang: Lang }) => {
               <div className="w-2 h-2 rounded-full bg-green/20" />
               <div className="w-2 h-2 rounded-full bg-secondary/20" />
            </div>
-           <p className="text-[9px] font-bold text-secondary/20 uppercase tracking-[0.5em]">
+           <p className="text-[9px] font-bold text-secondary/20 uppercase ">
              Official Digital Portal
            </p>
         </div>

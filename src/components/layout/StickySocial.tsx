@@ -67,7 +67,7 @@ const StickySocial = () => {
 
             {/* Premium Tooltip */}
             <div className="hidden md:flex absolute right-full mr-6 items-center opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 translate-x-4 group-hover:translate-x-0">
-              <div className="bg-secondary text-white text-[10px] font-black uppercase tracking-[0.2em] px-4 py-2 rounded-xl shadow-xl whitespace-nowrap">
+              <div className="bg-secondary text-white text-[10px] font-black uppercase px-4 py-2 rounded-xl shadow-xl whitespace-nowrap">
                 {item.label}
               </div>
               <div className="w-2 h-2 bg-secondary rotate-45 -ml-1" />

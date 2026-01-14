@@ -85,8 +85,8 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
           {/* Badge */}
           <div className="hero-badge inline-flex items-center gap-3 px-4 py-2 bg-green/5 border-l-4 border-green rounded-r-xl mb-6 lg:mb-10">
             <img src={bjp} alt="BJP" className="w-6 h-6 object-contain" />
-            <span className="text-primary font-black text-[10px] lg:text-xs uppercase tracking-[0.2em]">
-              {isHi ? "सतना के विकास का ध्वजवाहक" : "Leader of Satna's Progress"}
+            <span className="text-primary font-black text-[10px] lg:text-xs uppercase ">
+              {isHi ? "सतना के विकास के ध्वजवाहक" : "Leader of Satna's Progress"}
             </span>
           </div>
 
@@ -97,7 +97,7 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
     {isHi ? "जनप्रिय सांसद" : "People's MP"}
   </h2>
   {/* यहाँ leading-[0.85] को बदलकर leading-[1.1] या leading-tight किया गया है */}
-  <h1 className="text-[clamp(2.8rem,9vw,6rem)] font-black leading-[1.1] lg:leading-[1] uppercase tracking-tighter py-3 block">
+  <h1 className="text-[clamp(2.8rem,9vw,6rem)] font-black leading-[1.1] lg:leading-[1] uppercase  py-3 block">
     <span className="text-primary inline-block">{isHi ? "गणेश" : "GANESH"}</span> <br />
     <span className="text-green inline-block">{isHi ? "सिंह" : "SINGH"}</span>
   </h1>
@@ -107,7 +107,7 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
           <div className="hero-desc mt-6 lg:mt-10 relative pl-6 border-l-4 border-primary">
             <p className="text-green/80 font-martel text-base lg:text-xl leading-relaxed max-w-xl">
               {isHi 
-                ? "32 वर्षों से अधिक का अटूट राजनैतिक सफर, जिसमें सतना की माटी और जन-जन का विश्वास समाहित है।" 
+                ? "3 दशक से अधिक का अटूट राजनैतिक सफर, जिसमें सतना का विकास और जन-जन का विश्वास समाहित है" 
                 : "A journey of over 32 years in public service, built on the profound trust of Satna."}
             </p>
           </div>
@@ -115,10 +115,10 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
           {/* Action Row */}
           <div className="hero-action flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-10 lg:mt-14">
             <button className="group relative w-full sm:w-auto bg-green text-white px-8 py-4 lg:px-10 lg:py-5 rounded-xl font-black text-xs uppercase tracking-widest overflow-hidden transition-all shadow-xl shadow-green/20">
-              <span className="relative z-10 flex items-center justify-center gap-3">
+              <a href="#journey" className="relative z-10 flex items-center justify-center gap-3">
                 {isHi ? "विकास यात्रा" : "Development Journey"}
                 <HiArrowRight className="text-lg group-hover:translate-x-1 transition-transform" />
-              </span>
+              </a>
               <div className="absolute inset-0 bg-primary -translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
             </button>
 
@@ -126,10 +126,10 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
                 <div className="flex flex-col">
                   <div className="flex items-baseline gap-1">
                     <span className="text-slate-800 text-3xl lg:text-4xl font-black leading-none italic">3</span>
-                    <span className="text-primary text-xl lg:text-2xl font-black tracking-tighter">{isHi ? "दशक" : "DECADES"}</span>
+                    <span className="text-primary text-xl lg:text-2xl font-black tracking-tighter">{isHi ? "दशक का विश्वास" : "DECADES"}</span>
                   </div>
-                  <p className="text-green font-bold text-[9px] lg:text-[10px] uppercase tracking-wider mt-1 whitespace-nowrap">
-                    {isHi ? "बेमिसाल जन-सेवा" : "OF PUBLIC SERVICE"}
+                  <p className="text-green font-bold text-[9px] lg:text-[16px] uppercase tracking-wider mt-1 whitespace-nowrap">
+                    {isHi ? "सतना का विकास" : "OF PUBLIC SERVICE"}
                   </p>
                 </div>
             </div>

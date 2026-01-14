@@ -63,11 +63,11 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
             <img src={logo} alt="Logo" className="h-full w-full object-cover transition-transform group-hover:scale-110" />
           </div>
           <div className="flex flex-col">
-            <h1 className="font-[Gotu] font-black text-primary text-sm md:text-lg tracking-tight uppercase leading-none">
+            <h1 className="font-[Gotu] font-black text-primary text-sm md:text-lg  uppercase leading-none">
               {lang === "hi" ? "गणेश सिंह" : "Ganesh Singh"}
             </h1>
-            <span className="text-[8px] md:text-[9px] font-bold text-secondary tracking-widest uppercase mt-0.5">
-              {lang === "hi" ? "सांसद - सतna" : "Member of Parliament"}
+            <span className="text-[8px] md:text-[9px] font-bold text-secondary  uppercase mt-0.5">
+              {lang === "hi" ? "सांसद - सतना" : "Member of Parliament"}
             </span>
           </div>
         </div>
@@ -80,7 +80,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
               href={item.href} 
               className="nav-item-anim relative px-4 py-2 group overflow-hidden"
             >
-              <h1 className="relative z-10 text-[10px] font-black uppercase tracking-widest text-green group-hover:text-secondary transition-colors">
+              <h1 className="relative z-10 text-[10px] font-black uppercase  text-green group-hover:text-secondary transition-colors">
                 {item.label}
               </h1>
               <motion.span 
@@ -133,7 +133,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
             <div className="flex justify-between items-center mb-10">
                <div className="flex items-center gap-3">
                   <img src={logo} className="h-10 w-10 rounded-full border-2 border-green" />
-                  <p className="font-black text-secondary uppercase tracking-tighter">Menu</p>
+                  <p className="font-black text-secondary uppercase ">Menu</p>
                </div>
                <button onClick={() => setIsOpen(false)} className="w-12 h-12 bg-secondary text-white rounded-full flex items-center justify-center">
                   <X size={24} />
@@ -153,7 +153,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
                 >
                   <div className="flex items-center gap-4">
                     <span className="text-green">{item.icon}</span>
-                    <span className="text-lg font-black text-secondary uppercase tracking-tight">{item.label}</span>
+                    <span className="text-lg font-black text-secondary uppercase">{item.label}</span>
                   </div>
                   <ArrowRight size={18} className="text-primary opacity-0 group-hover:opacity-100" />
                 </motion.a>

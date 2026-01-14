@@ -27,7 +27,7 @@ const SectionHeading = ({ title, subtitle }: SectionHeadingProps) => {
             className="flex items-center justify-center gap-4 mb-6"
           >
             <span className="h-[1px] w-8 md:w-12 bg-gradient-to-r from-transparent to-green" />
-            <span className="text-[9px] md:text-[11px] font-black uppercase tracking-[0.5em] text-green">
+            <span className="text-[9px] md:text-[11px] font-black uppercase  text-green">
               {subtitle}
             </span>
             <span className="h-[1px] w-8 md:w-12 bg-gradient-to-l from-transparent to-green" />
@@ -82,7 +82,7 @@ const SectionHeading = ({ title, subtitle }: SectionHeadingProps) => {
           className="mt-2"
         >
           <div className="inline-block px-6 py-2 rounded-full border border-slate-100 bg-slate-50/50 backdrop-blur-sm">
-             <p className="text-[10px] md:text-[8px] font-bold text-secondary/60 uppercase tracking-[0.3em]">
+             <p className="text-[7px] md:text-[8px] font-bold text-secondary/60 uppercase tracking-[0.3em]">
                <span className="text-secondary">32 Years</span> of Committed Service
              </p>
           </div>
