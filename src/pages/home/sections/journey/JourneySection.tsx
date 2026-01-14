@@ -148,7 +148,7 @@ useEffect(() => {
         <div ref={sectionRef} className="hidden md:flex items-center pl-24 pr-[40vw] gap-24 whitespace-nowrap flex-grow -mt-10 lg:mt-0">
           {timeline.map((item, index) => (
             <div key={index} className="relative flex-shrink-0 w-[420px]">
-              <div className="absolute -top-16 -left-6 text-[10rem] font-black opacity-[0.03] font-[Gotu] text-secondary select-none pointer-events-none">
+              <div className="absolute -top-36 -left-6 text-[10rem] font-black opacity-[0.08] font-[Gotu] text-primary select-none pointer-events-none">
                 {item.year.split('–')[0]}
               </div>
               <div className="relative z-10">
