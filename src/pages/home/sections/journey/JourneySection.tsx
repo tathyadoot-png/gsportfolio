@@ -221,7 +221,7 @@ useEffect(() => {
             <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-transparent" />
             
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2  px-5 py-1.5 rounded-2xl shadow-xl">
-              <span className="text-secondary font-black text-xs tracking-[0.2em]">{item.year}</span>
+              <span className="text-secondary font-black text-xs ">{item.year}</span>
             </div>
           </div>
 
@@ -245,7 +245,7 @@ useEffect(() => {
     </div>
     <h2 className="text-3xl font-[Gotu] font-bold text-secondary leading-tight">
       {isHi ? "सफर जारी है," : "The journey continues,"}<br />
-      <span className="text-primary text-xl uppercase tracking-[0.3em] font-black block mt-2">
+      <span className="text-primary text-xl uppercase  font-black block mt-2">
         {isHi ? "संकल्प अटल है" : "Active Vision"}
       </span>
     </h2>

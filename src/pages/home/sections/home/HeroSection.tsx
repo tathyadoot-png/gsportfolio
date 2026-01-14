@@ -114,7 +114,7 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
 
           {/* Action Row */}
           <div className="hero-action flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-10 lg:mt-14">
-            <button className="group relative w-full sm:w-auto bg-green text-white px-8 py-4 lg:px-10 lg:py-5 rounded-xl font-black text-xs uppercase tracking-widest overflow-hidden transition-all shadow-xl shadow-green/20">
+            <button className="group relative w-full sm:w-auto bg-green text-white px-8 py-4 lg:px-10 lg:py-5 rounded-xl font-black text-xs uppercase overflow-hidden transition-all shadow-xl shadow-green/20">
               <a href="#journey" className="relative z-10 flex items-center justify-center gap-3">
                 {isHi ? "विकास यात्रा" : "Development Journey"}
                 <HiArrowRight className="text-lg group-hover:translate-x-1 transition-transform" />
@@ -126,9 +126,9 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
                 <div className="flex flex-col">
                   <div className="flex items-baseline gap-1">
                     <span className="text-slate-800 text-3xl lg:text-4xl font-black leading-none italic">3</span>
-                    <span className="text-primary text-xl lg:text-2xl font-black tracking-tighter">{isHi ? "दशक का विश्वास" : "DECADES"}</span>
+                    <span className="text-primary text-xl lg:text-2xl font-black ">{isHi ? "दशक का विश्वास" : "DECADES"}</span>
                   </div>
-                  <p className="text-green font-bold text-[9px] lg:text-[16px] uppercase tracking-wider mt-1 whitespace-nowrap">
+                  <p className="text-green font-bold text-[9px] lg:text-[16px] uppercase  mt-1 whitespace-nowrap">
                     {isHi ? "सतना का विकास" : "OF PUBLIC SERVICE"}
                   </p>
                 </div>

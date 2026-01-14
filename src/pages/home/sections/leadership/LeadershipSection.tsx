@@ -129,7 +129,7 @@ const LeadershipSection = ({ lang }: LeadershipSectionProps) => {
             
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
               <div className="max-w-2xl text-center md:text-left">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-primary text-[10px] font-black uppercase tracking-[0.3em] mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-primary text-[10px] font-black uppercase  mb-6">
                   <SearchCheck className="w-4 h-4" />
                   {isHi ? "सार्वजनिक उत्तरदायित्व" : "Public Accountability"}
                 </div>
@@ -149,7 +149,7 @@ const LeadershipSection = ({ lang }: LeadershipSectionProps) => {
                    <div className="w-32 h-32 md:w-44 md:h-44 rounded-full border-2 border-white/10 flex flex-col items-center justify-center relative bg-white/5 backdrop-blur-sm group-hover:border-primary/50 transition-colors duration-700">
                       <Zap className="text-primary w-6 h-6 mb-2" />
                       <span className="text-white font-gotu text-4xl md:text-5xl font-bold">100%</span>
-                      <span className="text-white/40 text-[10px] uppercase font-bold tracking-tighter">Verified</span>
+                      <span className="text-white/40 text-[10px] uppercase font-bold ">Verified</span>
                    </div>
                 </div>
               </div>

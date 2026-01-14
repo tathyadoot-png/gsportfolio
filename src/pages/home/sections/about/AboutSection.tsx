@@ -93,7 +93,7 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
         
         <div className="mb-12 md:mb-20 reveal-text">
           <SectionHeading
-            subtitle={isHi ? "जनता का सेवक, सतना का संकल्प" : "Public Servant, Satna's Resolution"}
+            subtitle={isHi ? "सेवा का संकल्प, विकास ही विकल्प" : "Driven by service, defined by progress"}
             title={isHi ? "व्यक्तित्व" : "Biography"}
           />
         </div>

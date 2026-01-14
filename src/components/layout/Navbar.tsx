@@ -66,7 +66,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
             <h1 className="font-[Gotu] font-black text-primary text-sm md:text-lg  uppercase leading-none">
               {lang === "hi" ? "गणेश सिंह" : "Ganesh Singh"}
             </h1>
-            <span className="text-[8px] md:text-[9px] font-bold text-secondary  uppercase mt-0.5">
+            <span className="text-[8px] md:text-[12px] font-bold text-secondary  uppercase mt-0.5">
               {lang === "hi" ? "सांसद - सतना" : "Member of Parliament"}
             </span>
           </div>

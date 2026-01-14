@@ -86,7 +86,7 @@ const GallerySection = () => {
                 <div className="flex items-end justify-between translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                   <div className="max-w-[75%]">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="px-3 py-1 rounded-full bg-primary text-white text-[9px] font-bold uppercase tracking-widest">
+                      <span className="px-3 py-1 rounded-full bg-primary text-white text-[9px] font-bold uppercase ">
                         {cat.images.length} {isHi ? "फोटोज" : "Photos"}
                       </span>
                     </div>
