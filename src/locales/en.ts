@@ -12,7 +12,8 @@ const en = {
   },
 
   cta: {
-    contact: "Contact Us",
+    contact: "Contact",
+    SANSAD: "Sansad Suvidha Kendra",
   },
 };
 

@@ -117,7 +117,7 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
               <div className="info-card-gsap p-6 bg-white border-l-4 border-primary shadow-sm rounded-2xl hover:shadow-md transition-shadow">
                 <ShieldCheck className="text-primary mb-3 size-7 md:size-8" />
                 <h5 className="font-[Gotu] text-base md:text-lg font-bold text-secondary">{isHi ? "अनुभव" : "Experience"}</h5>
-                <p className="text-sm text-slate-500">32+ {isHi ? "वर्षों का अनुभव" : "Years Experience"}</p>
+                <p className="text-sm text-slate-500">3{isHi ? "दशक का अनुभव" : "decades Experience"}</p>
               </div>
 
               {/* NEW REFINED IMPACT SECTION (No 100%) */}
@@ -145,9 +145,9 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
                   <div className="flex gap-8 items-center">
                     <div className="h-20 w-[1px] bg-white/20 hidden md:block" />
                     <div className="text-center">
-                      <p className="text-5xl md:text-6xl font-black italic text-white leading-none">30+</p>
+                      <p className="text-5xl md:text-6xl font-black italic text-white leading-none">3+</p>
                       <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-green mt-2">
-                        {isHi ? "वर्षों की सेवा" : "Years of Service"}
+                        {isHi ? "दशक की सेवा" : "decades of Service"}
                       </p>
                     </div>
                   </div>

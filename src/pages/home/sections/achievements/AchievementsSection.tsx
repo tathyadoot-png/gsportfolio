@@ -25,7 +25,7 @@ const AchievementsSection = ({ lang }: AchievementsSectionProps) => {
     { titleHi: "लगातार पाँच बार लोकसभा सांसद", titleEn: "Five-Time Consecutive MP", descHi: "गणेश सिंह सतना लोकसभा क्षेत्र से लगातार पाँच बार निर्वाचित होकर संसद पहुँचे। यह उनकी जनप्रियता और जनता के विश्वास का स्पष्ट प्रमाण है।", descEn: "Elected five consecutive times from Satna, reflecting immense public trust.", img: img6 },
     { titleHi: "स्थिर और सशक्त प्रतिनिधित्व", titleEn: "Stable Representation", descHi: "लंबे समय तक क्षेत्र का प्रतिनिधित्व करते हुए उन्होंने सतना को स्थिर राजनीतिक नेतृत्व प्रदान किया, जिससे विकास में निरंतरता बनी रही।", descEn: "His long tenure has provided Satna with stable political leadership and development.", img: img9 },
     { titleHi: "संसदीय समितियों में सक्रिय सहभागिता", titleEn: "Parliamentary Participation", descHi: "सांसद के रूप में उन्होंने विभिन्न संसदीय समितियों में भाग लेकर नीति निर्माण और विधायी प्रक्रियाओं में महत्वपूर्ण योगदान दिया।", descEn: "Actively contributed to policy-making through various parliamentary committees.", img: img10 },
-    { titleHi: "जमीनी राजनीति से राष्ट्रीय सफर", titleEn: "Grassroots to National Leadership", descHi: "ज़िला पंचायत स्तर से लेकर लोकसभा सांसद तक की यात्रा उनके व्यापक राजनीतिक अनुभव और जमीनी समझ को दर्शाती है।", descEn: "His progression from local governance to national leadership highlights deep experience.", img: img11 },
+    { titleHi: "जनसेवा: जमीनी राजनीति से राष्ट्रीय सफर", titleEn: "Grassroots to National Leadership", descHi: "ज़िला पंचायत स्तर से लेकर लोकसभा सांसद तक की यात्रा उनके व्यापक राजनीतिक अनुभव और जमीनी समझ को दर्शाती है।", descEn: "His progression from local governance to national leadership highlights deep experience.", img: img11 },
     { titleHi: "जनता के विश्वास पर आधारित नेतृत्व", titleEn: "Leadership on Public Confidence", descHi: "लगातार चुनावी सफलताएँ यह दर्शाती हैं कि उनका नेतृत्व जनता की अपेक्षाओं और क्षेत्रीय आवश्यकताओं के अनुरूप रहा है।", descEn: "Repeated victories demonstrate leadership grounded in public trust.", img: img12 }
   ];
 
@@ -67,7 +67,7 @@ const AchievementsSection = ({ lang }: AchievementsSectionProps) => {
         
         <div className="mb-20">
           <SectionHeading
-            subtitle={isHi ? "32+ वर्षों का गौरवशाली सफर" : "32+ Years of Journey"}
+            subtitle={isHi ? "3+ दशक का गौरवशाली सफर" : "3+ Decades of Journey"}
             title={isHi ? "ऐतिहासिक उपलब्धियाँ" : "Major Achievements"}
           />
         </div>
@@ -107,7 +107,7 @@ const AchievementsSection = ({ lang }: AchievementsSectionProps) => {
                       <div className="h-px w-12 bg-primary/30"></div>
                     </div>
 
-                    <h3 className="text-3xl md:text-5xl font-gotu font-bold text-secondary leading-tight">
+                    <h3 className="text-3xl md:text-[48px] font-gotu leading-[1.3] font-bold text-secondary ">
                       {isHi ? item.titleHi : item.titleEn}
                     </h3>
 

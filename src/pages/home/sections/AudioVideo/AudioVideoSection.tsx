@@ -20,7 +20,7 @@ const AudioVideoSection = ({ lang }: AudioVideoSectionProps) => {
   const videoList = [
     { 
       id: 1, 
-      title: isHi ? "रीवा का बढ़ता गौरव: हवाई अड्डे का शिलान्यास" : "Rewa's Rising Pride: Airport Foundation",
+      title: isHi ? "सतना का बढ़ता गौरव: हवाई अड्डे का शिलान्यास" : "satna's Rising Pride: Airport Foundation",
       thumbnail: img14,
       url: vdo1,
       tag: isHi ? "मुख्य" : "Featured"

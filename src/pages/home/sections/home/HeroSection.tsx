@@ -148,7 +148,7 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
             <p className="text-green/80 font-martel text-base lg:text-xl leading-relaxed max-w-xl">
               {isHi 
                 ? "3 दशक से अधिक का अटूट राजनीतिक सफर, जिसमें सतना का विकास और जन-जन का विश्वास समाहित है" 
-                : "A journey of over 32 years in public service, built on the profound trust of Satna."}
+                : "A journey of over 3 decades in public service, built on the profound trust of Satna."}
             </p>
           </div>
 
