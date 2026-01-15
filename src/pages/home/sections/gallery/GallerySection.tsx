@@ -195,7 +195,7 @@ const GallerySection = () => {
                     {imgIndex + 1} / {activeCat.images.length}
                   </p>
                   <p className="text-white text-sm md:text-base font-martel">
-                    {isHi ? "स्वर्णिम रीवा: जनसेवा और विकास की यात्रा" : "Golden Rewa: A journey of service & growth"}
+                    {isHi ? "स्वर्णिम सतना: जनसेवा और विकास की यात्रा" : "Golden satna: A journey of service & growth"}
                   </p>
                </motion.div>
             </div>
@@ -206,4 +206,4 @@ const GallerySection = () => {
   );
 };
 
-export default GallerySection;
+export default GallerySection; 
