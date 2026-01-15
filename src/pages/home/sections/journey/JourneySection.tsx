@@ -140,7 +140,7 @@ useEffect(() => {
         <div className=" md:pt-12 lg:pt-3 ">
           <SectionHeading
             subtitle={isHi ? "30 वर्षों का गौरवशाली सफर" : "30 Years of Dedicated Service"}
-            title={isHi ? "विकास की राजनीतिक यात्रा" : "A Legacy of Transformation"}
+            title={isHi ? "विश्वास की राजनीतिक यात्रा" : "A Legacy of Transformation"}
           />
         </div>
 
