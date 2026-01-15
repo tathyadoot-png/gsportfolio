@@ -8,7 +8,7 @@ import bjp from "@/assets/bjp.png";
 // Images
 import slid1 from "@/assets/img3.jpg";
 import slid20 from "@/assets/img20.jpg";
-import slid31 from "@/assets/img31.jpg";
+import slid31 from "@/assets/img37.jpg";
 import slid13 from "@/assets/img13.jpg";
 import slid15 from "@/assets/img15.jpg";
 import slid18 from "@/assets/img18.jpg"; 
@@ -18,12 +18,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
   const isHi = lang === "hi";
-  const images = [slid1, slid20, slid31,slid15 , slid13, slid18,slid3];
+  const images = [slid1, slid20, slid31, slid15, slid13, slid18, slid3];
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef(null);
   const imageZoneRef = useRef(null);
 
-  // Image Slider Logic
+  // FIXED SLIDER LOGIC
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -31,12 +31,11 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // GSAP Animations
+  // GSAP Animations (Aapka original logic)
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
 
-      // 1. Initial Entrance (Very smooth & premium)
       tl.from(".hero-badge", { 
         opacity: 0, 
         x: -50, 
@@ -64,7 +63,6 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
         ease: "back.out(1.7)" 
       }, "-=0.5");
 
-      // 2. Scroll Parallax Effect for Image Zone
       gsap.to(imageZoneRef.current, {
         yPercent: 15,
         ease: "none",
@@ -76,7 +74,6 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
         }
       });
 
-      // 3. Reveal Text on Scroll (Subtle scale effect)
       gsap.to(".hero-title", {
         scale: 0.95,
         opacity: 0.8,
@@ -98,42 +95,38 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
       {/* ================= LEFT: IMAGE ZONE ================= */}
       <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-full overflow-hidden pt-16 lg:pt-0 border-b-4 border-primary lg:border-b-0">
         
+        {/* Aapki original color strip */}
         <div className="absolute left-0 top-0 w-1.5 lg:w-3 h-full z-20 flex flex-col">
           <div className="flex-1 bg-primary" /> 
           <div className="flex-1 bg-white" />  
           <div className="flex-1 bg-green" />  
         </div>
 
+        {/* FIXED IMAGE SLIDER WRAPPER */}
         <div ref={imageZoneRef} className="w-full h-full relative">
-          <AnimatePresence mode="wait">
-            <motion.div
+          <AnimatePresence mode="popLayout"> {/* 'popLayout' prevent jumping during transition */}
+            <motion.img
               key={currentIndex}
-              initial={{ opacity: 0, scale: 1.2 }}
+              src={images[currentIndex]}
+              initial={{ opacity: 0, scale: 1.1 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.1 }}
-              transition={{ duration: 1.8, ease: "circOut" }}
-              className="w-full h-full absolute inset-0"
-            >
-              <img 
-                src={images[currentIndex]} 
-                className="w-full h-full object-cover object-[center_15%] lg:object-top" 
-                alt={`Ganesh Singh Ji ${currentIndex + 1}`}
-              />
-              <div className="absolute inset-0 bg-black/10 lg:hidden" />
-            </motion.div>
+              exit={{ opacity: 0, scale: 1.05 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="w-full h-full absolute inset-0 object-cover object-[center_15%] lg:object-top"
+              alt="Ganesh Singh Ji"
+            />
           </AnimatePresence>
+          <div className="absolute inset-0 bg-black/5 lg:hidden" />
         </div>
 
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent hidden lg:block z-10" />
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent lg:hidden z-10" />
       </div>
 
-      {/* ================= RIGHT: CONTENT PANEL ================= */}
+      {/* ================= RIGHT: CONTENT PANEL (UNTOUCHED) ================= */}
       <div className="relative w-full lg:w-1/2 flex items-center px-6 md:px-12 lg:px-24 bg-white py-12 lg:py-0">
         
         <div className="w-full z-10">
-          
-          {/* Badge */}
           <div className="hero-badge inline-flex items-center gap-3 px-4 py-2 bg-green/5 border-l-4 border-green rounded-r-xl mb-6 lg:mb-10">
             <img src={bjp} alt="BJP" className="w-6 h-6 object-contain" />
             <span className="text-primary font-black text-[10px] lg:text-xs uppercase ">
@@ -141,18 +134,16 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
             </span>
           </div>
 
-          {/* Heading Stack */}
           <div className="hero-title space-y-0 lg:space-y-2">
             <h2 className="text-green py-2 font-gotu text-xl lg:text-3xl font-bold italic block">
               {isHi ? "जनप्रिय सांसद" : "People's MP"}
             </h2>
-            <h1 className="text-[clamp(2.8rem,9vw,6rem)] font-black leading-[1.1] lg:leading-[1] uppercase py-3 block overflow-hidden">
+            <h1 className="text-[clamp(2.8rem,9vw,6rem)] font-black leading-[1.1] lg:leading-[1] uppercase py-6 block overflow-hidden">
               <span className="text-primary inline-block">{isHi ? "गणेश" : "GANESH"}</span> <br />
               <span className="text-green inline-block">{isHi ? "सिंह" : "SINGH"}</span>
             </h1>
           </div>
 
-          {/* Description */}
           <div className="hero-desc mt-6 lg:mt-10 relative pl-6 border-l-4 border-primary">
             <p className="text-green/80 font-martel text-base lg:text-xl leading-relaxed max-w-xl">
               {isHi 
@@ -161,7 +152,6 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
             </p>
           </div>
 
-          {/* Action Row */}
           <div className="hero-action flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-10 lg:mt-14">
             <button className="group relative w-full sm:w-auto bg-green text-white px-8 py-4 lg:px-10 lg:py-5 rounded-xl font-black text-xs uppercase overflow-hidden transition-all shadow-xl shadow-green/20 hover:shadow-primary/40">
               <a href="#journey" className="relative z-10 flex items-center justify-center gap-3">
@@ -184,7 +174,6 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
             </div>
           </div>
 
-          {/* Indicators */}
           <div className="hero-action mt-12 lg:mt-20 flex items-center gap-3">
              {images.map((_, i) => (
                <button 
