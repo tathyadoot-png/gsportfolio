@@ -44,7 +44,7 @@ const ContributionsSection = ({ lang }: ContributionsSectionProps) => {
       accent: "#112250",
     },
     {
-      title: isHi ? "संसदीय सशक्त आवाज़" : "Strong Voice in Parliament",
+      title: isHi ? "संसद में सतना की आवाज़" : "Strong Voice in Parliament",
       shortDesc: isHi ? "क्षेत्रीय मुद्दों को संसद के पटल पर उठाना।" : "Raising regional issues on the floor of Parliament.",
       fullDetail: isHi 
         ? "संसद में उन्होंने सतना और आसपास के क्षेत्रों से जुड़े सामाजिक, आर्थिक और विकासात्मक मुद्दों को लगातार उठाया और उनके समाधान के लिए निरंतर प्रयास किए।"
