@@ -11,6 +11,8 @@ import img12 from "@/assets/img12.jpg";
 import img14 from "@/assets/img6.jpg";
 import img15 from "@/assets/img10.jpg";
 import img16 from "@/assets/img11.jpg";
+import img27 from "@/assets/img27.jpeg";
+import img30 from "@/assets/img26.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,13 +31,13 @@ const JourneySection = ({ lang }: JourneySectionProps) => {
       year: "1990", 
       title: isHi ? "नेतृत्व की नींव" : "Foundation", 
       desc: isHi ? "विधि महाविद्यालय के दौरान छात्र राजनीति से जनसेवा की शुरुआत की और नेतृत्व कौशल को निखारा।" : "Began public service through student politics during law college, honing leadership skills.",
-      img: img12
+      img: img27
     },
     { 
       year: "1994", 
       title: isHi ? "स्थानीय शासन" : "Local Governance", 
       desc: isHi ? "ज़िला पंचायत सदस्य और अध्यक्ष के रूप में ग्रामीण विकास और प्रशासनिक कार्यों का अनुभव लिया।" : "Gained experience in rural development and administration as Zila Panchayat member and Chairman.",
-      img: img13
+      img: img30
     },
     { 
       year: "2004", 

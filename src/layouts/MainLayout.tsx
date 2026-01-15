@@ -1,11 +1,22 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { Outlet } from "react-router-dom";
 import { motion, AnimatePresence, Variants } from "framer-motion";
+import gsap from "gsap";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import bjp from "@/assets/bjp.png";
 import StickySocial from "@/components/layout/StickySocial";
 import ScrollToTop from "@/components/layout/ScrollToTop";
+
+// Assets
+import img18 from "@/assets/18.jpg";
+import img19 from "@/assets/img3.jpg";
+import img20 from "@/assets/img8.jpg";
+import img21 from "@/assets/img30.jpeg";
+import img22 from "@/assets/img27.jpeg";
+import img23 from "@/assets/img15.jpg";
+import img24 from "@/assets/img18.jpg";
+import img25 from "@/assets/img33.jpg";
 
 export type Lang = "hi" | "en";
 
@@ -16,13 +27,50 @@ const MainLayout = () => {
   });
 
   const [loading, setLoading] = useState(true);
+  const imagesRef = useRef<HTMLDivElement>(null);
   const isHi = lang === "hi";
+
+  const loaderImages = [
+    { src: img18, pos: "top-[8%] left-[5%] md:left-[8%]" },
+    { src: img19, pos: "top-[12%] right-[5%] md:right-[10%]" },
+    { src: img20, pos: "bottom-[18%] left-[5%] md:left-[10%]" },
+    { src: img21, pos: "bottom-[12%] right-[5%] md:right-[12%]" },
+    { src: img22, pos: "top-[35%] left-[-2%] md:left-[2%] hidden lg:block" },
+    { src: img23, pos: "top-[40%] right-[-2%] md:right-[2%] hidden lg:block" },
+    { src: img24, pos: "bottom-[35%] left-[2%] hidden md:block" },
+    { src: img25, pos: "bottom-[5%] left-[35%] hidden md:block" },
+  ];
 
   useEffect(() => {
     localStorage.setItem("lang", lang);
-    const timer = setTimeout(() => setLoading(false), 3500);
-    return () => clearTimeout(timer);
-  }, [lang]);
+    const timer = setTimeout(() => setLoading(false), 4000);
+
+    if (loading) {
+      const ctx = gsap.context(() => {
+        gsap.from(".loader-img", {
+          scale: 0,
+          opacity: 0,
+          duration: 1.2,
+          stagger: 0.1,
+          ease: "back.out(1.7)",
+        });
+
+        gsap.to(".loader-img", {
+          y: "random(-25, 25)",
+          x: "random(-15, 15)",
+          duration: "random(3, 5)",
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      }, imagesRef);
+
+      return () => {
+        ctx.revert();
+        clearTimeout(timer);
+      };
+    }
+  }, [lang, loading]);
 
   const splitText = (text: string) => {
     if (!text) return [];
@@ -41,15 +89,14 @@ const MainLayout = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+      transition: { staggerChildren: 0.08, delayChildren: 0.6 }
     }
   };
 
-  // Naya Floating Animation
   const letterAnim: Variants = {
-    hidden: { opacity: 0, x: -20, filter: "blur(5px)" },
+    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
     visible: { 
-      opacity: 1, x: 0, filter: "blur(0px)",
+      opacity: 1, y: 0, filter: "blur(0px)",
       transition: { duration: 0.8, ease: "easeOut" } 
     }
   };
@@ -59,22 +106,22 @@ const MainLayout = () => {
       <style>{`
         .ganesh-white-loader { 
           background: #ffffff; 
-          background-image: radial-gradient(#f0f0f0 1px, transparent 1px);
-          background-size: 30px 30px;
+          background-image: radial-gradient(#e5e7eb 1.5px, transparent 1.5px);
+          background-size: 40px 40px;
           overflow: hidden; 
         }
-        .royal-border {
+        .loader-img {
           position: absolute;
-          border: 1px solid rgba(255, 153, 51, 0.2);
-          inset: 20px;
-          pointer-events: none;
+          width: 115px; height: 115px;
+          object-fit: cover;
+          border-radius: 1.5rem;
+          opacity: 0.45;
+          box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+          filter: grayscale(15%);
+          z-index: 5;
         }
-        .sun-glow {
-          position: absolute;
-          width: 600px; height: 600px;
-          background: radial-gradient(circle, rgba(255, 153, 51, 0.05) 0%, transparent 70%);
-          top: -200px; right: -200px;
-          border-radius: 50%;
+        @media (min-width: 768px) {
+          .loader-img { width: 195px; height: 195px; border-radius: 2.5rem; }
         }
       `}</style>
 
@@ -82,67 +129,55 @@ const MainLayout = () => {
         {loading && (
           <motion.div
             key="loader"
-            className="fixed inset-0 z-[9999] ganesh-white-loader flex flex-col items-center justify-center"
-            exit={{ opacity: 0, scale: 1.1, transition: { duration: 0.6 } }}
+            className="fixed inset-0 z-[9999] ganesh-white-loader flex flex-col items-center justify-center px-4"
+            exit={{ opacity: 0, scale: 1.05, transition: { duration: 0.8 } }}
           >
-            <div className="sun-glow" />
-            <div className="royal-border" />
+            <div ref={imagesRef} className="absolute inset-0 overflow-hidden pointer-events-none">
+              {loaderImages.map((img, idx) => (
+                <img key={idx} src={img.src} className={`loader-img ${img.pos}`} alt="" />
+              ))}
+            </div>
 
-            {/* BJP Logo with Rotating Shadow */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="relative z-20 mb-10"
-            >
-              <img src={bjp} className="w-20 h-20 object-contain" alt="BJP" />
-              <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 border-2 border-dashed border-primary/20 rounded-full scale-150"
-              />
-            </motion.div>
+            <div className="relative z-20 flex flex-col items-center w-full max-w-6xl">
+                <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} className="mb-8">
+                  <img src={bjp} className="w-16 h-16 md:w-24 md:h-24 object-contain" alt="BJP" />
+                </motion.div>
 
-            <motion.div variants={textContainer} initial="hidden" animate="visible" className="z-10 text-center">
-              {/* First Name (GANESH) - Ab ye Navy Blue mein hai (Trust Color) */}
-              <div className="flex justify-center mb-1">
-                <h2 className="flex text-primary text-[12vw] sm:text-[8vw] font-black  uppercase">
-                  {firstName.map((l, i) => (
-                    <motion.span key={i} variants={letterAnim}>{l}</motion.span>
-                  ))}
-                </h2>
-              </div>
+                <motion.div variants={textContainer} initial="hidden" animate="visible" className="w-full">
+                  <div className="flex flex-nowrap justify-center items-baseline gap-3 md:gap-6 overflow-hidden whitespace-nowrap">
+                    <h2 className="flex text-primary py-10 text-[11vw] sm:text-[8vw] font-black uppercase leading-none">
+                      {firstName.map((l, i) => (
+                        <motion.span key={i} variants={letterAnim}>{l}</motion.span>
+                      ))}
+                    </h2>
+                    <h2 className={`flex text-green text-[9.5vw] sm:text-[6.5vw] font-light uppercase italic leading-none ${isHi ? "" : "tracking-tighter"}`}>
+                      {lastName.map((l, i) => (
+                        <motion.span key={i} variants={letterAnim}>{l}</motion.span>
+                      ))}
+                    </h2>
+                  </div>
 
-              {/* Tri-color Divider Line */}
-              <div className="flex items-center justify-center gap-1 my-4">
-                <motion.div initial={{ width: 0 }} animate={{ width: "40px" }} className="h-1 bg-primary rounded-full" />
-                <motion.div initial={{ width: 0 }} animate={{ width: "40px" }} transition={{ delay: 0.2 }} className="h-1 bg-slate-200 rounded-full" />
-                <motion.div initial={{ width: 0 }} animate={{ width: "40px" }} transition={{ delay: 0.4 }} className="h-1 bg-green rounded-full" />
-              </div>
+                  <div className="flex items-center justify-center gap-1 mt-8">
+                    <motion.div initial={{ width: 0 }} animate={{ width: "15%" }} className="h-[2px] bg-primary rounded-full max-w-[120px]" />
+                    <motion.div initial={{ width: 0 }} animate={{ width: "15%" }} transition={{ delay: 0.2 }} className="h-[2px] bg-slate-200 rounded-full max-w-[120px]" />
+                    <motion.div initial={{ width: 0 }} animate={{ width: "15%" }} transition={{ delay: 0.4 }} className="h-[2px] bg-green rounded-full max-w-[120px]" />
+                  </div>
+                </motion.div>
+            </div>
 
-              {/* Last Name (SINGH) - Ab ye Green mein hai (Growth Color) */}
-              <div className="flex justify-center">
-                <h2 className={`flex text-green text-[10vw] sm:text-[6vw] font-light uppercase italic ${isHi ? "space-x-1" : "tracking-[0.5em]"}`}>
-                  {lastName.map((l, i) => (
-                    <motion.span key={i} variants={letterAnim}>{l}</motion.span>
-                  ))}
-                </h2>
-              </div>
-            </motion.div>
-
-            {/* Bottom Content: Satna Legacy */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} 
               animate={{ opacity: 1, y: 0 }} 
-              transition={{ delay: 0.8 }}
-              className="absolute bottom-20 text-center z-20"
+              transition={{ delay: 1.5 }}
+              className="absolute bottom-12 text-center z-20 w-full"
             >
-              <p className="text-secondary font-bold text-[17px] sm:text-[12px]  uppercase">
+              <p className="text-secondary font-black text-[14px] sm:text-[18px] uppercase tracking-[0.25em]">
                 {isHi ? "3 दशक का अटूट विश्वास" : "3 Decades of Unshakable Trust"}
               </p>
-              <div className="mt-2 flex items-center justify-center gap-2">
-                <span className="h-[2px] w-4 bg-primary" />
-                <span className="text-[9px] text-secondary font-medium uppercase ">Satna Constituency</span>
-                <span className="h-[2px] w-4 bg-green" />
+              <div className="mt-3 flex items-center justify-center gap-3 opacity-60">
+                <span className="h-[1px] w-10 bg-primary" />
+                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Satna Constituency</span>
+                <span className="h-[1px] w-10 bg-green" />
               </div>
             </motion.div>
           </motion.div>
