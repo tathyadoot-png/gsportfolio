@@ -9,14 +9,14 @@
   import ScrollToTop from "@/components/layout/ScrollToTop";
 
   // Assets
-  import img18 from "@/assets/18.jpg";
-  import img19 from "@/assets/img3.jpg";
-  import img20 from "@/assets/img8.jpg";
-  import img21 from "@/assets/img30.jpeg";
-  import img22 from "@/assets/img27.jpeg";
-  import img23 from "@/assets/img15.jpg";
-  import img24 from "@/assets/img18.jpg";
-  import img25 from "@/assets/img33.jpg";
+  // import img18 from "@/assets/18.jpg";
+  // import img19 from "@/assets/img3.jpg";
+  // import img20 from "@/assets/img8.jpg";
+  // import img21 from "@/assets/img30.jpeg";
+  // import img22 from "@/assets/img27.jpeg";
+  // import img23 from "@/assets/img15.jpg";
+  // import img24 from "@/assets/img18.jpg";
+  // import img25 from "@/assets/img33.jpg";
 
   export type Lang = "hi" | "en";
 
@@ -31,16 +31,16 @@
     const isHi = lang === "hi";
 
     // Position Strategy: Anchored to edges with safe center margins
-    const loaderImages = [
-      { src: img18, pos: "top-[5%] left-[10%]" },
-      { src: img19, pos: "top-[5%] right-[10%]" },
-      { src: img20, pos: "bottom-[10%] left-[10%]" },
-      { src: img21, pos: "bottom-[10%] right-[10%]" },
-      { src: img22, pos: "top-[40%] left-[4%] hidden xl:block" },
-      { src: img23, pos: "top-[40%] right-[4%] hidden xl:block" },
-      { src: img24, pos: "top-[5%] left-[40%] hidden lg:block" },
-      { src: img25, pos: "bottom-[5%] left-[40%] hidden lg:block" },
-    ];
+    // const loaderImages = [
+    //   { src: img18, pos: "top-[5%] left-[10%]" },
+    //   { src: img19, pos: "top-[5%] right-[10%]" },
+    //   { src: img20, pos: "bottom-[10%] left-[10%]" },
+    //   { src: img21, pos: "bottom-[10%] right-[10%]" },
+    //   { src: img22, pos: "top-[40%] left-[4%] hidden xl:block" },
+    //   { src: img23, pos: "top-[40%] right-[4%] hidden xl:block" },
+    //   { src: img24, pos: "top-[5%] left-[40%] hidden lg:block" },
+    //   { src: img25, pos: "bottom-[5%] left-[40%] hidden lg:block" },
+    // ];
 
     useEffect(() => {
       localStorage.setItem("lang", lang);
@@ -131,11 +131,11 @@
               exit={{ opacity: 0, transition: { duration: 0.8 } }}
             >
               {/* Background Images Layer */}
-              <div ref={containerRef} className="absolute inset-0 pointer-events-none">
+              {/* <div ref={containerRef} className="absolute inset-0 pointer-events-none">
                 {loaderImages.map((img, idx) => (
                   <img key={idx} src={img.src} className={`loader-img ${img.pos}`} alt="" />
                 ))}
-              </div>
+              </div> */}
 
               {/* Central Content */}
               <div className="relative z-20 safe-center flex flex-col items-center">
