@@ -108,7 +108,7 @@ const LeadershipSection = ({ lang }: LeadershipSectionProps) => {
                   <h3 className="text-2xl md:text-3xl font-gotu font-bold text-secondary leading-tight">
                     {isHi ? item.titleHi : item.titleEn}
                   </h3>
-                  <p className="font-martel text-base md:text-lg text-slate-500 leading-relaxed text-justify">
+                  <p className="font-Poppins text-base md:text-lg text-slate-500 leading-relaxed text-justify">
                     {isHi ? item.descHi : item.descEn}
                   </p>
                 </div>
@@ -136,7 +136,7 @@ const LeadershipSection = ({ lang }: LeadershipSectionProps) => {
                 <h3 className="text-3xl md:text-5xl font-gotu font-bold text-white mb-6">
                   {isHi ? "पारदर्शिता और जवाबदेही" : "Transparency & Accountability"}
                 </h3>
-                <p className="text-white/60 font-martel text-lg leading-relaxed">
+                <p className="text-white/60 font-Poppins text-lg leading-relaxed">
                   {isHi 
                     ? "एक जनप्रतिनिधि के रूप में वे सार्वजनिक उत्तरदायित्व को सर्वोपरि मानते हैं और पारदर्शिता पर विशेष ध्यान देते हैं।"
                     : "As a representative, he prioritizes public responsibility and maintains high standards of transparency."}

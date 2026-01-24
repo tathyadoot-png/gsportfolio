@@ -27,7 +27,7 @@ const SectionHeading = ({ title, subtitle }: SectionHeadingProps) => {
             className="flex items-center justify-center gap-4 mb-6"
           >
             <span className="h-[1px] w-8 md:w-12 bg-gradient-to-r from-transparent to-green" />
-            <span className="text-[9px] md:text-[20px] font-black uppercase  text-green">
+            <span className="text-[9px] md:text-[18px]  uppercase  text-green">
               {subtitle}
             </span>
             <span className="h-[1px] w-8 md:w-12 bg-gradient-to-l from-transparent to-green" />

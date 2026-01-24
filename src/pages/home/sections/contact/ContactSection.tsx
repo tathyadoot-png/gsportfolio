@@ -65,7 +65,7 @@ const ContactSection = () => {
               <h3 className="text-3xl md:text-5xl font-gotu font-bold text-secondary  text-justify ">
                 {isHi ? "आप की आवाज़, सतना के विकास की नींव" : "Your Voice, Our Priority"}
               </h3>
-              <p className="font-martel text-secondary/70 text-lg leading-relaxed">
+              <p className="font-Poppins text-secondary/70 text-lg leading-relaxed">
                 {labels.desc}
               </p>
             </div>

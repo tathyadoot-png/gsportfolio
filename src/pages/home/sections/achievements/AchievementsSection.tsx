@@ -111,7 +111,7 @@ const AchievementsSection = ({ lang }: AchievementsSectionProps) => {
                       {isHi ? item.titleHi : item.titleEn}
                     </h3>
 
-                    <p className="font-martel text-lg md:text-xl text-slate-500 leading-relaxed">
+                    <p className="font-Poppins text-lg md:text-xl text-slate-500 leading-relaxed">
                       {isHi ? item.descHi : item.descEn}
                     </p>
 

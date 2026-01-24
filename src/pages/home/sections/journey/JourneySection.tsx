@@ -166,7 +166,7 @@ useEffect(() => {
                     <div className="w-1.5 h-8 bg-primary rounded-full" />
                     <h3 className="text-2xl font-bold text-secondary font-[Gotu] leading-tight">{item.title}</h3>
                   </div>
-                  <p className="text-muted text-base font-[Martel] leading-relaxed opacity-90">{item.desc}</p>
+                  <p className="text-muted text-base font-[Poppins] leading-relaxed opacity-90">{item.desc}</p>
                 </div>
               </div>
             </div>
@@ -231,7 +231,7 @@ useEffect(() => {
             <h3 className="text-2xl font-bold text-secondary font-[Gotu] mb-3 leading-tight">
               {item.title}
             </h3>
-            <p className="text-sm text-muted font-[Martel] leading-relaxed opacity-80">
+            <p className="text-sm text-muted font-[Poppins] leading-relaxed opacity-80">
               {item.desc}
             </p>
           </div>

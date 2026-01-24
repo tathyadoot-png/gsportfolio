@@ -55,7 +55,7 @@ const Footer = ({ lang }: { lang: Lang }) => {
 
         {/* Middle Section: Slogan */}
         {/* <div className="py-8 border-t border-slate-100 flex justify-center">
-          <p className="font-martel text-secondary/40 text-sm md:text-base italic text-center">
+          <p className="font-Poppins text-secondary/40 text-sm md:text-base italic text-center">
             {isHi ? "“प्रगतिशील विन्ध्य, समृद्ध प्रदेश - हमारा संकल्प, हमारा गौरव”" : "“Progressive Vindhya, Prosperous State - Our Resolve, Our Pride”"}
           </p>
         </div> */}

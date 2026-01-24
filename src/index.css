@@ -25,7 +25,7 @@
   /* 🔹 Default body content font */
   body {
     @apply bg-bg text-text antialiased;
-    font-family: 'Martel';
+    font-family: 'Poppins';
   }
 
   /* 🔹 All headings = Gotu */

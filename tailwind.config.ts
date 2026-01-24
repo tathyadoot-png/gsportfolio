@@ -36,7 +36,7 @@ const config: Config = {
       
      fontFamily: {
         amita: ['"Amita"', 'serif'],
-        asar: ['"Asar"', 'serif'],
+        Poppins: ['"Poppins"', 'serif'],
         gotu: ['"Gotu"', 'sans-serif'],
         playpen: ['"Playpen Sans Deva"', 'sans-serif'],
       },

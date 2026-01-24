@@ -118,7 +118,7 @@ const ContributionsSection = ({ lang }: ContributionsSectionProps) => {
                   <h3 className="text-xl md:text-2xl font-[Gotu] font-bold text-slate-900 mb-4 leading-tight">
                     {item.title}
                   </h3>
-                  <p className="font-[Martel] text-slate-500 text-sm md:text-base leading-relaxed">
+                  <p className="font-[Poppins] text-slate-500 text-sm md:text-base leading-relaxed">
                     {item.shortDesc}
                   </p>
                 </div>
@@ -140,7 +140,7 @@ const ContributionsSection = ({ lang }: ContributionsSectionProps) => {
                   {item.title}
                 </h4>
 
-                <p className="text-white font-[Martel] text-sm md:text-base leading-relaxed text-justify">
+                <p className="text-white font-[Poppins] text-sm md:text-base leading-relaxed text-justify">
                   {item.fullDetail}
                 </p>
 

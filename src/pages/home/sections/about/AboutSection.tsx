@@ -98,7 +98,7 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
 
               <div className="reveal-text-item flex gap-4 md:gap-6 items-start">
                 <Quote className="text-primary shrink-0 opacity-20 size-8 md:size-12" />
-                <p className="font-[Martel] text-base md:text-xl text-slate-600 leading-relaxed text-justify">
+                <p className="font-[Poppins] text-base md:text-xl text-slate-600 leading-relaxed text-justify">
                   {isHi 
                     ? "गणेश सिंह का जन्म 2 जुलाई 1962 को हुआ। उन्होंने समाजशास्त्र एवं विधि में उच्च शिक्षा प्राप्त की। छात्र राजनीति से अपने सार्वजनिक जीवन की शुरुआत कर उन्होंने जनसेवा को अपना ध्येय बनाया। सतना के विकास को नई दिशा देने और क्षेत्र की समस्याओं के समाधान हेतु सतत प्रयासों के माध्यम से उन्होंने जन-जन का विश्वास अर्जित किया है। इसी विश्वास और समर्थन के बल पर वे आज लगातार पाँचवीं बार संसद में सतना का प्रतिनिधित्व कर रहे हैं। सतना के समग्र विकास के ध्येय के साथ पूर्ण निष्ठा से वे सतना के विकास के लिए समर्पित हैं।"
                     : "Ganesh Singh was born on 2 July 1962. He pursued higher education in Sociology and Law. Beginning his public life through student politics, he made public service his mission. Through continuous efforts to give a new direction to Satna’s development and to resolve the Satna’s problems, he has earned the trust of the people. On the strength of this trust and support, He is today representing Satna in Parliament for the fifth consecutive term. With the goal of Satna’s holistic development, he remains fully committed and dedicated to the development of Satna."}
