@@ -160,7 +160,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
 
             <div className="flex flex-col gap-2 overflow-y-auto">
               <a href="https://www.ssksatna.com/" target="_blank" className="flex items-center justify-between p-5 rounded-2xl bg-green/10 border-2 border-green/20 mb-2">
-                <span className="text-lg font-black text-green uppercase italic">{lang === "hi" ? "सांसद सुविधा केंद्र" : "SSK Satna"}</span>
+                <span className="text-lg font-black font-[gotu] text-green uppercase italic">{lang === "hi" ? "सांसद सुविधा केंद्र" : "SSK Satna"}</span>
                 <ExternalLink size={18} className="text-green" />
               </a>
               {navItems.map((item, idx) => (
@@ -171,10 +171,10 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
                   transition={{ delay: idx * 0.05 }}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100 active:bg-green/5 transition-colors"
+                  className="flex items-center gap-4 p-5 rounded-2xl  bg-slate-50 border border-slate-100 active:bg-green/5 transition-colors"
                 >
                   <span className="text-green">{item.icon}</span>
-                  <span className="text-lg font-black text-secondary uppercase">{item.label}</span>
+                  <span className="text-lg font-[gotu] text-secondary uppercase">{item.label}</span>
                 </motion.a>
               ))}
             </div>

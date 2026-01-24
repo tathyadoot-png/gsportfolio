@@ -62,9 +62,10 @@ const ContactSection = () => {
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 {isHi ? "सीधा संवाद" : "Direct Connect"}
               </div>
-              <h3 className="text-3xl md:text-5xl font-gotu font-bold text-secondary  text-justify ">
-                {isHi ? "आप की आवाज़, सतना के विकास की नींव" : "Your Voice, Our Priority"}
-              </h3>
+           <h3 className="text-3xl md:text-5xl font-gotu font-bold text-secondary  leading-snug md:leading-tight">
+  {isHi ? "आप की आवाज़, सतना के विकास की नींव" : "Your Voice, Building the Future of Satna"}
+</h3>
+
               <p className="font-Poppins text-secondary/70 text-lg leading-relaxed">
                 {labels.desc}
               </p>
@@ -77,8 +78,8 @@ const ContactSection = () => {
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black text-slate-400 uppercase  mb-1">Email Official</p>
-                  <p className="font-bold text-sm md:text-lg text-secondary break-all ">ganeshsinghsatnamp@gmail.com</p>
+                  <p className="text-[12px]  text-slate-800 uppercase  mb-1">Email Official</p>
+                  <p className=" text-sm md:text-lg text-secondary break-all ">ganeshsinghsatnamp@gmail.com</p>
                 </div>
               </div>
 
@@ -88,15 +89,15 @@ const ContactSection = () => {
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black text-slate-400 uppercase  mb-1">Constituency</p>
-                  <p className="font-bold text-sm md:text-lg text-secondary ">{isHi ? "सतना, मध्य प्रदेश" : "Satna, Madhya Pradesh"}</p>
+                  <p className="        text-[12px]  text-slate-800         uppercase  mb-1">Constituency</p>
+                  <p className=" text-sm md:text-lg text-secondary ">{isHi ? "सतना, मध्य प्रदेश" : "Satna, Madhya Pradesh"}</p>
                 </div>
               </div>
             </div>
 
             {/* Modern Social Grid */}
             <div className="pt-4">
-              <p className="text-[10px] font-black text-slate-400 uppercase  mb-6 ml-1">{isHi ? "सोशल मीडिया पर जुड़ें" : "Follow on Socials"}</p>
+              <p className="text-[12px]  text-slate-800 uppercase  mb-6 ml-1">{isHi ? "सोशल मीडिया पर जुड़ें" : "Follow on Socials"}</p>
               <div className="flex flex-wrap gap-4">
                 {[
                   { Icon: Facebook, link: "https://www.facebook.com/share/17G8ZiAHdx/", color: "hover:bg-[#1877F2]" },
@@ -134,7 +135,7 @@ const ContactSection = () => {
                     { label: labels.city, name: "city", type: "text", icon: "primary" },
                   ].map((field, idx) => (
                     <div key={idx} className="space-y-2">
-                      <label className="text-[10px] font-black text-slate-400 uppercase ml-1">{field.label}</label>
+                      <label className="text-[14px]  text-slate-800 uppercase ml-1">{field.label}</label>
                       <input 
                         type={field.type} 
                         name={field.name} 
@@ -146,7 +147,7 @@ const ContactSection = () => {
                   ))}
                
                   <div className="md:col-span-2 space-y-2">
-                    <label className="text-[10px] font-black text-slate-400 uppercase ml-1">{labels.msg}</label>
+                    <label className="text-[14px]  text-slate-800 uppercase ml-1">{labels.msg}</label>
                     <textarea 
                       name="message" 
                       rows={4} 
@@ -160,7 +161,7 @@ const ContactSection = () => {
                     className="md:col-span-2 relative group overflow-hidden bg-green py-5 rounded-2xl transition-all duration-500"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-primary to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <span className="relative z-10 text-white font-black text-sm md:text-base uppercase  flex items-center justify-center gap-3">
+                    <span className="relative z-10 text-white  text-sm md:text-base uppercase  flex items-center justify-center gap-3">
                       {labels.btn} <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </span>
                   </button>
