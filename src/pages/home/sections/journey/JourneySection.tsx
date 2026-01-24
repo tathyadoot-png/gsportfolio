@@ -52,9 +52,9 @@ const JourneySection = ({ lang }: JourneySectionProps) => {
       img: img15
     },
     { 
-      year: "2026", 
-      title: isHi ? "सक्रिय संकल्प" : "Active Vision", 
-      desc: isHi ? "आज भी सतना के विकास और जनकल्याण के लिए संसद में प्रभावी आवाज़ बुलंद कर रहे हैं।" : "Continues to be a strong voice in Parliament for Satna's development and public welfare.",
+      year: "वर्तमान", 
+      title: isHi ? "सेवा संकल्प" : "Active Vision", 
+      desc: isHi ? "सतना के विकास के लिए सदैव समर्पित...." : "Always dedicated to the development of Satna....",
       img: img16
     },
   ];

@@ -27,7 +27,7 @@ const ContactSection = () => {
   const labels = {
     title: isHi ? "अपनी बात हम तक पहुँचाएँ" : "Share Your Message With Us",
     subtitle: isHi ? "संपर्क करें" : "Contact Us",
-    desc: isHi ? "विन्ध्य के विकास और आपकी समस्याओं के समाधान के लिए हम सदैव तत्पर हैं।" : "We are always ready for the development of Vindhya and to solve your problems.",
+    desc: isHi ? "सतना के विकास और आपकी समस्याओं के समाधान के लिए हम सदैव तत्पर हैं।" : "We are always ready for the development of Vindhya and to solve your problems.",
     name: isHi ? "पूरा नाम" : "Full Name",
     phone: isHi ? "मोबाइल नंबर" : "Mobile Number",
     email: isHi ? "ईमेल पता" : "Email Address",
@@ -62,8 +62,8 @@ const ContactSection = () => {
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 {isHi ? "सीधा संवाद" : "Direct Connect"}
               </div>
-              <h3 className="text-3xl md:text-5xl font-gotu font-bold text-secondary leading-tight">
-                {isHi ? "आपकी आवाज़, हमारी प्राथमिकता" : "Your Voice, Our Priority"}
+              <h3 className="text-3xl md:text-5xl font-gotu font-bold text-secondary  text-justify ">
+                {isHi ? "आप की आवाज़, सतना के विकास की नींव" : "Your Voice, Our Priority"}
               </h3>
               <p className="font-martel text-secondary/70 text-lg leading-relaxed">
                 {labels.desc}
