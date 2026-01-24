@@ -27,7 +27,7 @@ const ContactSection = () => {
   const labels = {
     title: isHi ? "अपनी बात हम तक पहुँचाएँ" : "Share Your Message With Us",
     subtitle: isHi ? "संपर्क करें" : "Contact Us",
-    desc: isHi ? "सतना के विकास और आपकी समस्याओं के समाधान के लिए हम सदैव तत्पर हैं।" : "We are always ready for the development of Vindhya and to solve your problems.",
+    desc: isHi ? "सतना के विकास और आपकी समस्याओं के समाधान के लिए हम सदैव तत्पर हैं।" : "We are always ready for the development of Satna and to solve your problems.",
     name: isHi ? "पूरा नाम" : "Full Name",
     phone: isHi ? "मोबाइल नंबर" : "Mobile Number",
     email: isHi ? "ईमेल पता" : "Email Address",

@@ -22,8 +22,8 @@ const LeadershipSection = ({ lang }: LeadershipSectionProps) => {
     {
       titleHi: "अनुभव आधारित नेतृत्व",
       titleEn: "Experience-Driven Leadership",
-      descHi: "जमीनी राजनीति से लेकर संसद तक की उनकी यात्रा ने उन्हें व्यावहारिक और संतुलित निर्णय लेने की क्षमता प्रदान की है।",
-      descEn: "His journey from grassroots to Parliament has equipped him with a practical and balanced decision-making approach.",
+      descHi: "सार्वजनिक जीवन के अनुभव और निरंतर जनसेवा के प्रति अटूट संकल्प के साथ, सामाजिक अनुभव आधारित यह प्रतिबद्धता सतना के समग्र विकास, क्षेत्र की जनता की सेवा और भारतीय जनता पार्टी के उद्देश्यों की पूर्ति हेतु किए जाने वाले प्रयासों का आधारस्तंभ है। यही निष्ठा और समर्पण जनहित के कार्यों को प्रभावी रूप से आगे बढ़ाने की प्रेरणा देता है।",
+      descEn: "With his vast experience in public life and an unwavering resolve toward continuous public service, this commitment—rooted in social experience—forms the foundation of all efforts aimed at the holistic development of Satna, the service of its people, and the fulfillment of the Bharatiya Janata Party's objectives. This very loyalty and dedication provide the inspiration to effectively carry forward works of public interest.",
       icon: <History className="w-6 h-6" />,
       color: "from-blue-500 to-blue-700",
       lightColor: "bg-blue-50",
@@ -33,8 +33,8 @@ const LeadershipSection = ({ lang }: LeadershipSectionProps) => {
     {
       titleHi: "जनसंपर्क और संवाद",
       titleEn: "Public Engagement",
-      descHi: "जनता से निरंतर संवाद को प्राथमिकता देते हैं। नियमित क्षेत्रीय भ्रमण से वे नागरिकों की समस्याओं को समझते हैं।",
-      descEn: "Emphasis on public engagement. Through regular visits, he understands and solves public concerns.",
+      descHi: "जनता से निरंतर संवाद ही मेरी प्राथमिकता है। सतना के जन-जन का विश्वास ही मेरी निस्वार्थ सेवा की प्रेरणा है।",
+      descEn: "Constant communication with the public is my priority. The trust of the people of Satna is the inspiration for my selfless service.",
       icon: <Users className="w-6 h-6" />,
       color: "from-orange-500 to-orange-700",
       lightColor: "bg-orange-50",
@@ -44,8 +44,8 @@ const LeadershipSection = ({ lang }: LeadershipSectionProps) => {
     {
       titleHi: "स्थिरता और निरंतरता",
       titleEn: "Stability & Consistency",
-      descHi: "लगातार पाँच बार सांसद निर्वाचित होना उनके नेतृत्व की स्थिरता और विश्वसनीयता का सबसे बड़ा प्रमाण है।",
-      descEn: "Being elected five consecutive times reflects the stability and reliability of his leadership.",
+      descHi: "सतना के विकास के ध्येय को पूर्ण करने हेतु जनसेवा के प्रति निरंतर प्रतिबद्ध और सतना के विकास को स्थिरता प्रदान करने के लिए सदैव समर्पित।",
+      descEn: "Constantly committed to public service to fulfill the goal of development of Satna and always dedicated to providing stability to the development of Satna.",
       icon: <ShieldCheck className="w-6 h-6" />,
       color: "from-emerald-500 to-emerald-700",
       lightColor: "bg-emerald-50",
@@ -55,8 +55,8 @@ const LeadershipSection = ({ lang }: LeadershipSectionProps) => {
     {
       titleHi: "संगठन और समन्वय",
       titleEn: "Coordination",
-      descHi: "पार्टी संगठन और प्रशासन के बीच प्रभावी समन्वय स्थापित करते हुए योजनाओं का बेहतर क्रियान्वयन सुनिश्चित करते हैं।",
-      descEn: "Effectively bridges organization and administration for smoother policy implementation.",
+      descHi: "भारतीय जनता पार्टी के प्रति पूर्ण समर्पण के साथ, संगठन को मजबूत करना और उसके उद्देश्यों एवं मूल्यों को जन-जन तक पहुँचाना ही मेरी सर्वोच्च प्राथमिकता है। संगठन के प्रति मेरी पूर्ण निष्ठा और समर्पण ही मेरे जनसेवा के कार्यों का आधार है। यही मुझे मेरे कर्तव्यों को ईमानदारी और प्रतिबद्धता के साथ निभाने की प्रेरणा देता है।",
+      descEn: "Constantly committed to public service to fulfill the goal of development of Satna and always dedicated to providing stability to the development of Satna. This is what inspires me to perform my duties with honesty and commitment. ",
       icon: <GitMerge className="w-6 h-6" />,
       color: "from-purple-500 to-purple-700",
       lightColor: "bg-purple-50",
@@ -119,7 +119,7 @@ const LeadershipSection = ({ lang }: LeadershipSectionProps) => {
           ))}
 
           {/* PUBLIC ACCOUNTABILITY - HIGHLIGHT CARD */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -154,15 +154,18 @@ const LeadershipSection = ({ lang }: LeadershipSectionProps) => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
 
         {/* MINIMAL FOOTER */}
         <div className="mt-20 text-center">
+          <a href="#journey">
+
            <button className="inline-flex items-center gap-3 bg-white border border-slate-100 px-8 py-4 rounded-2xl text-secondary font-gotu font-bold hover:bg-primary hover:text-white hover:border-primary transition-all duration-500 shadow-sm">
              {isHi ? "नेतृत्व का सफर देखें" : "Explore Leadership Journey"}
              <ChevronRight className="w-5 h-5" />
            </button>
+          </a>
         </div>
 
       </div>

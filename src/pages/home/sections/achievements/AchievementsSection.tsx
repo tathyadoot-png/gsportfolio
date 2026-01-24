@@ -101,8 +101,8 @@ const AchievementsSection = ({ lang }: AchievementsSectionProps) => {
                 <div className={`w-full lg:w-1/2 flex flex-col ${index % 2 === 0 ? "lg:items-start lg:text-left" : "lg:items-end lg:text-right"}`}>
                   <div className="max-w-xl space-y-6">
                     <div className={`flex items-center gap-4 ${index % 2 === 0 ? "" : "lg:flex-row-reverse"}`}>
-                      <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold font-gotu uppercase tracking-widest">
-                        Milestone 0{index + 1}
+                      <span className="bg-primary/10 text-primary px-4 py-1 rounded-full md:text-3xl text-xl font-bold font-gotu uppercase tracking-widest">
+                         0{index + 1}
                       </span>
                       <div className="h-px w-12 bg-primary/30"></div>
                     </div>
