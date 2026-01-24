@@ -83,7 +83,7 @@ const SectionHeading = ({ title, subtitle }: SectionHeadingProps) => {
         >
           <div className="inline-block px-6 py-2 rounded-full border border-slate-100 bg-slate-50/50 backdrop-blur-sm">
              <p className="text-[7px] md:text-[8px] font-bold text-secondary/60 uppercase ">
-               <span className="text-secondary">3 decades</span> of Committed Service
+               <span className="text-secondary">3 decades</span> of serving Satna
              </p>
           </div>
         </motion.div>
