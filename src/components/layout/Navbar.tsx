@@ -22,6 +22,20 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
   const navRef = useRef(null);
 
+  // --- यहाँ स्मूथ स्क्रॉल फंक्शन जोड़ा गया है ---
+  const scrollToSection = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    const targetId = id.replace('#', ''); // '#' हटाने के लिए
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      setIsOpen(false); // मोबाइल मेनू बंद करने के लिए
+    }
+  };
+
   const navItems = [
     { label: t.nav.home, href: "#home", icon: <Home size={18} /> },
     { label: t.nav.about, href: "#about", icon: <User size={18} /> },
@@ -35,21 +49,11 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".nav-container", {
-        y: -100,
-        opacity: 0,
-        duration: 1.2,
-        ease: "expo.out",
+        y: -100, opacity: 0, duration: 1.2, ease: "expo.out",
       });
-
       gsap.from(".nav-item-anim", {
-        y: -20,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power4.out",
-        delay: 0.5,
+        y: -20, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power4.out", delay: 0.5,
       });
-
       ScrollTrigger.create({
         start: "top -20",
         onUpdate: (self) => {
@@ -58,7 +62,6 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
         },
       });
     }, navRef);
-    
     return () => ctx.revert();
   }, []);
 
@@ -69,7 +72,6 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
           scrolled ? "w-full max-w-[1480px] border-slate-200" : "w-full max-w-[1580px] border-transparent"
         }`}
       >
-        {/* LOGO SECTION - Shrink-0 prevents logo from getting squeezed */}
         <div className="nav-item-anim flex items-center gap-3 group cursor-pointer shrink-0 min-w-fit">
           <div className="relative h-10 w-10 md:h-12 md:w-12 overflow-hidden rounded-full border-2 border-green">
             <img src={logo} alt="Logo" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
@@ -84,12 +86,13 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
           </div>
         </div>
 
-        {/* DESKTOP NAV - Hidden on small screens, adjusts spacing automatically */}
+        {/* DESKTOP NAV - यहाँ onClick जोड़ा गया है */}
         <div className="hidden xl:flex items-center justify-center gap-1 mx-4">
           {navItems.map((item) => (
             <a 
               key={item.href} 
               href={item.href} 
+              onClick={(e) => scrollToSection(e, item.href)}
               className="nav-item-anim relative px-3 py-2 group overflow-hidden whitespace-nowrap"
             >
               <h1 className="relative z-10 text-[15px] font-black uppercase text-green group-hover:text-secondary transition-colors duration-300">
@@ -100,10 +103,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
           ))}
         </div>
 
-        {/* ACTIONS SECTION - Flexible but stays aligned to right */}
         <div className="nav-item-anim flex items-center gap-2 md:gap-2 shrink-0">
-          
-          {/* SANSAD SUVIDHA KENDRA BUTTON */}
           <a
             href="https://www.ssksatna.com/"
             target="_blank"
@@ -113,16 +113,16 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
             {lang === "hi" ? "सांसद सुविधा केंद्र" : "Sansad Suvidha Kendra"}
           </a>
 
-       
-
+          {/* Contact Link - यहाँ भी onClick जोड़ा गया है */}
           <a
             href="#contact"
+            onClick={(e) => scrollToSection(e, "#contact")}
             className="hidden sm:flex items-center gap-2 bg-secondary text-white px-3 py-2 rounded-full text-[11px] font-gotu uppercase hover:bg-primary hover:scale-105 transition-all shadow-lg whitespace-nowrap"
           >
             {t.cta.contact}
           </a>
 
-   <button
+          <button
             onClick={() => setLang(lang === "hi" ? "en" : "hi")}
             className="flex items-center gap-2 px-2 md:px-4 py-2 rounded-full bg-slate-100 hover:bg-primary hover:text-white transition-all duration-300 group min-w-fit"
           >
@@ -138,7 +138,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
         </div>
       </div>
 
-      {/* MOBILE MENU (Remains clean) */}
+      {/* MOBILE MENU - यहाँ भी onClick जोड़ा गया है */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -170,8 +170,8 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: idx * 0.05 }}
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-4 p-5 rounded-2xl  bg-slate-50 border border-slate-100 active:bg-green/5 transition-colors"
+                  onClick={(e) => scrollToSection(e, item.href)}
+                  className="flex items-center gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100 active:bg-green/5 transition-colors"
                 >
                   <span className="text-green">{item.icon}</span>
                   <span className="text-lg font-[gotu] text-secondary uppercase">{item.label}</span>
@@ -183,7 +183,11 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
                 <button onClick={() => { setLang(lang === "hi" ? "en" : "hi"); setIsOpen(false); }} className="py-4 rounded-2xl bg-slate-100 text-secondary font-black uppercase text-[12px] flex items-center justify-center gap-2 shadow-sm">
                   <Globe size={16} className="text-green" /> {lang === "hi" ? "English" : "हिंदी"}
                 </button>
-                <a href="#contact" className="py-4 rounded-2xl bg-primary text-white font-black uppercase text-[12px] flex items-center justify-center gap-2 shadow-lg">
+                <a 
+                  href="#contact" 
+                  onClick={(e) => scrollToSection(e, "#contact")}
+                  className="py-4 rounded-2xl bg-primary text-white font-black uppercase text-[12px] flex items-center justify-center gap-2 shadow-lg"
+                >
                   <PhoneCall size={16} /> Contact
                 </a>
             </div>
