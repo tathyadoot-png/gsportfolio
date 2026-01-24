@@ -1,5 +1,7 @@
 import { ArrowUpRight, Heart } from "lucide-react";
 import logo from "@/assets/SociyoLogo.png";
+import logo1 from "@/assets/logoLight.png";
+import logo2 from "@/assets/logoDark.png";
 import type { Lang } from "@/layouts/MainLayout";
 
 const Footer = ({ lang }: { lang: Lang }) => {
@@ -52,11 +54,11 @@ const Footer = ({ lang }: { lang: Lang }) => {
         </div>
 
         {/* Middle Section: Slogan */}
-        <div className="py-8 border-t border-slate-100 flex justify-center">
+        {/* <div className="py-8 border-t border-slate-100 flex justify-center">
           <p className="font-martel text-secondary/40 text-sm md:text-base italic text-center">
             {isHi ? "“प्रगतिशील विन्ध्य, समृद्ध प्रदेश - हमारा संकल्प, हमारा गौरव”" : "“Progressive Vindhya, Prosperous State - Our Resolve, Our Pride”"}
           </p>
-        </div>
+        </div> */}
 
         {/* The Agency Bar - Premium Dark Mode */}
         <div className="mb-8 rounded-3xl md:rounded-full bg-secondary p-2 pl-8 pr-2 flex flex-col md:flex-row items-center justify-between gap-4 shadow-2xl shadow-secondary/20">
@@ -74,7 +76,7 @@ const Footer = ({ lang }: { lang: Lang }) => {
           </div>
 
           <a 
-            href="https://thesociyo.com/" 
+            href="https://www.inedconetworks.com/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="w-full md:w-auto flex items-center justify-between gap-6 bg-white/5 hover:bg-white/10 pl-6 pr-1 py-1 rounded-full border border-white/5 transition-all group"
@@ -82,8 +84,8 @@ const Footer = ({ lang }: { lang: Lang }) => {
             <span className="text-[10px] font-black text-white/40 uppercase ">Digital Partner</span>
             <div className="flex items-center gap-4">
                <img 
-                 src={logo} 
-                 alt="The Sociyo" 
+                 src={logo2} 
+                 alt="Inedco Networks" 
                  className="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity" 
                />
                <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center group-hover:bg-white group-hover:scale-90 transition-all duration-500">

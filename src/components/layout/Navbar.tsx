@@ -151,7 +151,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
             <div className="flex justify-between items-center mb-8">
                <div className="flex items-center gap-3">
                   <img src={logo} className="h-10 w-10 rounded-full border-2 border-green" />
-                  <p className="font-black text-secondary uppercase tracking-tighter">Ganesh Singh</p>
+                  <p className="font-black text-secondary uppercase ">Ganesh Singh</p>
                </div>
                <button onClick={() => setIsOpen(false)} className="w-12 h-12 bg-secondary text-white rounded-full flex items-center justify-center">
                   <X size={24} />

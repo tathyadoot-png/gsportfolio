@@ -164,12 +164,12 @@ const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
             <div className="flex items-center gap-4 border-l border-slate-200 pl-6">
                 <div className="flex flex-col">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-slate-800 text-3xl lg:text-4xl font-black leading-none italic">3</span>
+                    <span className="text-slate-800 text-3xl lg:text-4xl font-black  italic">3</span>
                     <span className="text-primary text-xl lg:text-2xl font-black ">{isHi ? "दशक का विश्वास" : "DECADES"}</span>
                   </div>
-                  <p className="text-green font-bold text-[9px] lg:text-[16px] uppercase mt-1 whitespace-nowrap">
+                  <span className="text-green font-bold text-[9px] lg:text-[19px] uppercase  whitespace-nowrap">
                     {isHi ? "सतना का विकास" : "OF PUBLIC SERVICE"}
-                  </p>
+                  </span>
                 </div>
             </div>
           </div>

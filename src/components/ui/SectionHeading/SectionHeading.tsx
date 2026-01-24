@@ -13,7 +13,7 @@ const SectionHeading = ({ title, subtitle }: SectionHeadingProps) => {
       
       {/* 1. FLOATING DECOR (Background Watermark) */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full opacity-[0.03] select-none pointer-events-none">
-        <h3 className="text-[15vw] font-black uppercase tracking-[1em] leading-none text-secondary">
+        <h3 className="text-[15vw] font-black uppercase leading-none text-secondary">
           {words[0]}
         </h3>
       </div>
@@ -42,7 +42,7 @@ const SectionHeading = ({ title, subtitle }: SectionHeadingProps) => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.15, type: "spring", stiffness: 100 }}
-              className={`font-[Gotu] text-4xl md:text-5xl lg:text-5xl font-[1000] uppercase tracking-tighter
+              className={`font-[Gotu] text-4xl md:text-5xl lg:text-5xl font-[1000] uppercase 
                 ${i === 0 ? "text-primary" : i === 1 ? "text-green" : "text-secondary"}
               `}
             >
@@ -82,7 +82,7 @@ const SectionHeading = ({ title, subtitle }: SectionHeadingProps) => {
           className="mt-2"
         >
           <div className="inline-block px-6 py-2 rounded-full border border-slate-100 bg-slate-50/50 backdrop-blur-sm">
-             <p className="text-[7px] md:text-[8px] font-bold text-secondary/60 uppercase tracking-[0.3em]">
+             <p className="text-[7px] md:text-[8px] font-bold text-secondary/60 uppercase ">
                <span className="text-secondary">3 decades</span> of Committed Service
              </p>
           </div>
