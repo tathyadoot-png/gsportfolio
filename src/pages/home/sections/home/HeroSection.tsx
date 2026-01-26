@@ -18,7 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
   const isHi = lang === "hi";
-  const images = [slid1, slid20, slid31, slid15, slid13, slid18, slid3];
+  const images = [slid1,  slid31, slid15, slid13, slid18, slid3];
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef(null);
   const imageZoneRef = useRef(null);
