@@ -7,7 +7,7 @@ import bjp from "@/assets/bjp.png";
 
 // Images
 import slid1 from "@/assets/img3.jpg";
-import slid20 from "@/assets/img20.jpg";
+// import slid20 from "@/assets/img20.jpg";
 import slid31 from "@/assets/img37.jpg";
 import slid13 from "@/assets/img13.jpg";
 import slid15 from "@/assets/img15.jpg";
@@ -18,7 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = ({ lang = "hi" }: { lang?: "hi" | "en" }) => {
   const isHi = lang === "hi";
-  const images = [slid1,  slid20, slid15, slid13, slid18, slid3];
+  const images = [slid1,   slid15, slid13, slid18, slid3];
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef(null);
   const imageZoneRef = useRef(null);
