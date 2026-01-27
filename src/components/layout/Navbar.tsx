@@ -80,7 +80,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
             <h1 className="font-[Gotu] font-black text-primary text-sm md:text-[22px] uppercase leading-none whitespace-nowrap">
               {lang === "hi" ? "गणेश सिंह" : "Ganesh Singh"}
             </h1>
-            <span className="text-[8px] md:text-[14px] font-bold text-secondary uppercase mt-0.5 whitespace-nowrap">
+            <span className="text-[8px] md:text-[14px] font-semibold text-secondary uppercase mt-0.5 whitespace-nowrap">
               {lang === "hi" ? "सांसद - सतना" : "MP - Satna"}
             </span>
           </div>
