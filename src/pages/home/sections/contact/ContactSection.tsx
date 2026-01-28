@@ -129,26 +129,36 @@ const ContactSection = () => {
             </div>
 
             {/* INFO & SOCIALS UNDER FORM */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                <div className="h-12 w-12 flex-shrink-0 flex items-center justify-center rounded-xl bg-green/10 text-green"><Mail size={20} /></div>
-                <div className="min-w-0">
-                  <p className="text-[10px] text-slate-400 uppercase font-bold">Email Official</p>
-                  <p className="text-sm text-secondary font-medium break-all">ganeshsinghsatnamp@gmail.com</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                <div className="h-12 w-12 flex-shrink-0 flex items-center justify-center rounded-xl bg-primary/10 text-primary"><MapPin size={20} /></div>
-                <div>
-                  <p className="text-[10px] text-slate-400 uppercase font-bold">Constituency</p>
-                  <p className="text-sm text-secondary font-medium">{isHi ? "सतना, मध्य प्रदेश" : "Satna, Madhya Pradesh"}</p>
-                </div>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  {/* Email Card - Now Clickable */}
+  <a 
+  target="_blank"
+    href="mailto:ganeshsinghsatnamp@gmail.com"
+    className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-slate-100 shadow-sm transition-all hover:border-green/30 hover:shadow-md group"
+  >
+    <div className="h-12 w-12 flex-shrink-0 flex items-center justify-center rounded-xl bg-green/10 text-green group-hover:bg-green group-hover:text-white transition-all">
+      <Mail size={20} />
+    </div>
+    <div className="min-w-0">
+      <p className="text-[10px] text-slate-400 uppercase font-bold">Email Official</p>
+      <p className="text-sm text-secondary font-medium break-all">ganeshsinghsatnamp@gmail.com</p>
+    </div>
+  </a>
 
+  {/* Constituency Card */}
+ <div className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-slate-100 shadow-sm transition-all hover:border-primary/30 hover:shadow-md group cursor-default">
+  <div className="h-12 w-12 flex-shrink-0 flex items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+    <MapPin size={20} />
+  </div>
+  <div>
+    <p className="text-[10px] text-slate-400 uppercase font-bold">Constituency</p>
+    <p className="text-sm text-secondary font-medium">{isHi ? "सतना, मध्य प्रदेश" : "Satna, Madhya Pradesh"}</p>
+  </div>
+</div>
+</div>
             {/* SOCIAL MEDIA ICONS */}
             <div className="flex items-center justify-center lg:justify-start gap-4 pt-4">
-              <p className="text-xs font-bold text-slate-400 uppercase mr-2 tracking-widest">{isHi ? "जुड़ें:" : "Follow:"}</p>
+              <p className="text-xs font-bold text-slate-400 uppercase mr-2 tracking-widest">{isHi ? "कार्यालय सोशल मीडिया:" : "Office Social Media:"}</p>
               {[
                 { Icon: Facebook, link: "https://www.facebook.com/share/17G8ZiAHdx/", color: "hover:bg-[#1877F2]" },
                 { Icon: Twitter, link: "https://x.com/OfficeofGS", color: "hover:bg-black" },
